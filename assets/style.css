@@ -152,6 +152,7 @@ body > #footer p strong {
 body > #footer p#copyright {
 	color: #75787b;
 	font-size: 0.8em;
+	font-weight: 400;
 	margin: 2.8em 0em 0em 0em;
 }
 
