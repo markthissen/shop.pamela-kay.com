@@ -1,0 +1,81 @@
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Reset
+ * 2.0 - Repeatable patterns
+ * 3.0 - Basic structure
+ * 4.0 - body > #header
+ * 5.0 - #content
+ * 6.0 - body > #footer
+ * 7.0 - Media queries
+ *		7.1 - Styles for iPhone landscape and up
+ *		7.2 - Styles for extra small devices only
+ *		7.3 - Styles for small, medium, and large devices
+ *		7.4 - Styles for small devices only
+ *		7.5 - Styles for extra small and small devices
+ *		7.6	- Styles for medium and large devices
+ *		7.7 - Styles for large devices only
+ * ----------------------------------------------------------------------------
+ */
+
+
+
+
+
+
+
+
+
+
+/*
+Primary:
+Pantone 541 C	#003c71
+
+
+Secondary:
+Pantone 225 C	#df1995
+Pantone 7551 C	#b47e00
+
+
+Monochromatic:
+Pantone 541 C	#003c71
+Pantone 7688 C	#4698cb
+Pantone 278 C	#8bb8e8
+
+
+Pantone Warm Gray 1 C	#d7d2cb
+Pantone Warm Gray 2 C	#cbc4bc
+Pantone Warm Gray 3 C	#bfb8af
+Pantone Warm Gray 4 C	#b6ada5
+Pantone Warm Gray 5 C	#aca39a
+Pantone Warm Gray 6 C	#a59c94
+Pantone Warm Gray 7 C	#968c83
+Pantone Warm Gray 8 C	#8c8279
+Pantone Warm Gray 9 C	#83786f
+Pantone Warm Gray 10 C	#796e65
+Pantone Warm Gray 11 C	#6e6259
+
+
+Pantone Cool Gray 1 C	#d9d9d6
+Pantone Cool Gray 2 C	#d0d0ce
+Pantone Cool Gray 3 C	#c8c9c7
+Pantone Cool Gray 4 C	#bbbcbc
+Pantone Cool Gray 5 C	#b1b3b3
+Pantone Cool Gray 6 C	#a7a8aa
+Pantone Cool Gray 7 C	#97999b
+Pantone Cool Gray 8 C	#888b8d
+Pantone Cool Gray 9 C	#75787b
+Pantone Cool Gray 10 C	#63666a
+Pantone Cool Gray 11 C	#53565a
+
+
+Pantone Black 7 C	#3d3935
+*/
+
+
+
+
+#promo {
+	background: #003c71;
+	color: #fff;
+}
