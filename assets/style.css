@@ -76,6 +76,24 @@ Pantone Black 7 C	#3d3935
 
 
 #promo {
-	background: #003c71;
+	background: url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/003c71-95.png');
 	color: #fff;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 0.8em;
+	font-weight: 300;
+	letter-spacing: 0.1em;
+	padding: 1em 1.6em;
+	position: fixed;
+	text-align: center;
+	width: 100%;
 }
+#promo strong {
+	color: #df1995;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+}
+
+
+
+
