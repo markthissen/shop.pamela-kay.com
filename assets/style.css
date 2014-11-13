@@ -94,6 +94,7 @@ body {
 	position: fixed;
 	text-align: center;
 	width: 100%;
+	z-index: 99;
 }
 #promo strong {
 	color: #df1995;
@@ -101,6 +102,21 @@ body {
 	font-size: 1.0em;
 	font-weight: 700;
 }
+
+.customer-links {
+	background: #ebe8e5; /* Pantone Warm Gray 1 C 50% */
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.1em;
+	font-weight: 400;
+	padding: 6em 1em 1em 1em;
+	text-align: center;
+}
+
+
+
+
+
+
 
 
 
@@ -118,6 +134,7 @@ body > #footer {
 body > #footer .logo {
 	height: auto;
 	margin-bottom: 2.4em;
+	max-width: 240px;
 	width: 65%;
 }
 body > #footer p {
