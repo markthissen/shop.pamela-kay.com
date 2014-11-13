@@ -110,10 +110,33 @@ body > #footer {
 	background: #ebe8e5; /* Pantone Warm Gray 1 C 50% */
 	bottom: 0;
 	min-height: 160px;
+	padding: 2.8em 1.6em 1.6em 1.6em;
 	position: absolute;
+	text-align: center;
 	width: 100%;
 }
-
+body > #footer .logo {
+	height: auto;
+	margin-bottom: 2.4em;
+	width: 65%;
+}
+body > #footer p {
+	color: #53565a;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.0em;
+	font-weight: 300;
+	line-height: 1.6em;
+}
+body > #footer p strong {
+	font-family: 'Open Sans', sans-serif;
+	color: #df1995;
+	font-weight: 400;
+}
+body > #footer p#copyright {
+	color: #75787b;
+	font-size: 0.8em;
+	margin: 2.8em 0em 0em 0em;
+}
 
 
 
