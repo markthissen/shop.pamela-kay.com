@@ -199,7 +199,7 @@ strong {
  * ----------------------------------------------------------------------------
  */
 #sticky-header {
-	background: #003c71;
+	background: url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/003c71-95.png');
 	position: fixed;
 	text-align: right;
 	width: 100%;
@@ -288,8 +288,11 @@ body > #header #nav {
  * ----------------------------------------------------------------------------
  */
 #content {
-	border: solid 6px #000;
 	min-height: 200px;
+}
+#content img {
+	height: auto;
+	width: 100%;
 }
 
 
