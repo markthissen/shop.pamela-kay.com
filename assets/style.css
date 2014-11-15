@@ -106,6 +106,7 @@ Pantone Black 7 C	#3d3935
  */
 * {
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
 }
 body {
 	background: #fff;
@@ -131,6 +132,10 @@ body {
  */
 .container {
 
+}
+strong {
+	color: #df1995;
+	font-weight: 600;
 }
 .logo {
 	display: block;
@@ -178,17 +183,51 @@ body {
  * 4.0 body > #header
  * ----------------------------------------------------------------------------
  */
-#promo {
+#sticky-header {
 	background: #003c71;
+	text-align: right;
+}
+#promo {
+
+}
+#promo p {
+	color: #fff;
+	display: inline-block;
+	float: left;
+	font-size: 0.9em;
+	height: 60px;
+	margin: 0px auto;
+	text-align: center;
+	width: 80%;
+}
+#promo p strong {
+	color: #8bb8e8;
+}
+#cart {
+	background: #df1995 url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/shopping-bag-icon-ffffff.png') no-repeat;
+	background-position: 45% 55%;
+	background-size: auto 65%;
+	display: inline-block;
+	height: 60px;
+	text-decoration: none;
+	width: 60px;
+}
+#cart .qty {
+	color: #6e6259;
+	display: block;
+	font-size: 1.1em;
+	font-weight: 400;
+	letter-spacing: 0em;
+	margin: 1.7em 0em 0em 1.52em;
+	text-align: center;
+	-ms-transform: skew(0deg,-4deg); -webkit-transform: skew(0deg,-4deg); transform: skew(0deg,-4deg);
+	width: 1.4em;
 }
 body > #header {
 	border: solid 8px #000;
 }
 body > #header #acct {
 	border: solid 1px #f0f;
-}
-body > #header #shopping-bag {
-	border: solid 1px #0ff;
 }
 body > #header .branding {
 	border: solid 1px #ff0;
@@ -241,8 +280,19 @@ body > #footer {
 body > #footer .search {
 	border: solid 1px #f00;
 }
+body > #footer #brand-msg {
+	border: solid 1px #00f;
+	padding: 2em;
+}
+body > #footer #brand-msg p {
+	font-size: 1.2em;
+	font-weight: 300;
+	margin-top: 3em;
+	text-align: center;
+}
 body > #footer #social {
 	border: solid 1px #0f0;
+	text-align: center;
 }
 body > #footer #social ul {
 	list-style: none;
@@ -260,9 +310,10 @@ body > #footer #social li img {
 	height: auto;
 	width: 90%;
 }
-body > #footer #brand-msg {
-	border: solid 1px #00f;
+body > #footer #tc {
+	text-align: center;
 }
+
 
 
 
@@ -283,7 +334,12 @@ body > #footer #brand-msg {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 480px) {
-
+	#promo p {
+		width: 88%;
+	}
+	body > #footer #social ul {
+		width: 50%;
+	}
 }
 
 

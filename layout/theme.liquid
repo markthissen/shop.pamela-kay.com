@@ -63,10 +63,23 @@
 
 
 	<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-		<div id="promo">
-			#ShopSmall and take advantage of 40% off using the promo code <strong>SHOPSMALL2014</strong>.
+		<div id="sticky-header">
+			<section id="promo">
+				<p>#ShopSmall and take advantage of 40% off using the promo code <strong>SHOPSMALL2014</strong>.</p>
+			</section>
+			<a href="/cart" title="You have {{ cart.item_count }} #UniquelyBeautiful {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart"><span class="qty">{{ cart.item_count }}</span></a>
 		</div>
-<!--/#promo -->
+<!--/#sticky-header -->
+
+
+
+
+
+
+
+
+
+
 		<header id="header">
 			<section id="acct">
 {% if shop.customer_accounts_enabled %}
@@ -83,14 +96,6 @@
 {% endif %}
 			</section>
 <!--/#acct -->
-			<section id="shopping-bag">
-				<a href="/cart">
-					<span class="item-count">{{ cart.item_count }}</span><br />
-						{{ cart.item_count | pluralize: 'item', 'items' }}<br />
-						({{ cart.total_price | money }})
-				</a>
-			</section>
-<!--/#shopping-bag -->
 			<section class="branding">
 				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay" title="Pamela Kay" class="logo">
 			</section>
