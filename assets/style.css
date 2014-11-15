@@ -105,11 +105,19 @@ Pantone Black 7 C	#3d3935
  * ----------------------------------------------------------------------------
  */
 * {
+	color: #53565a;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 }
 body {
 	background: #fff;
+}
+h3 {
+	color: #83786f;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 2.2em;
+	font-weight: 300;
+	margin-bottom: 0.3em;
 }
 
 
@@ -185,7 +193,10 @@ strong {
  */
 #sticky-header {
 	background: #003c71;
+	position: fixed;
 	text-align: right;
+	width: 100%;
+	z-index: 99;
 }
 #promo {
 
@@ -224,10 +235,11 @@ strong {
 	width: 1.4em;
 }
 body > #header {
-	border: solid 8px #000;
+	padding-top: 60px;
 }
 body > #header #acct {
 	border: solid 1px #f0f;
+	text-align: right;
 }
 body > #header .branding {
 	border: solid 1px #ff0;
@@ -275,13 +287,13 @@ body > #header .branding {
  * ----------------------------------------------------------------------------
  */
 body > #footer {
-	border: solid 4px #000;
+
 }
 body > #footer .search {
 	border: solid 1px #f00;
+	text-align: center;
 }
 body > #footer #brand-msg {
-	border: solid 1px #00f;
 	padding: 2em;
 }
 body > #footer #brand-msg p {
@@ -291,8 +303,12 @@ body > #footer #brand-msg p {
 	text-align: center;
 }
 body > #footer #social {
-	border: solid 1px #0f0;
 	text-align: center;
+	padding-bottom: 2em;
+}
+body > #footer #social p {
+	font-size: 1em;
+	margin-bottom: 1.4em;
 }
 body > #footer #social ul {
 	list-style: none;
@@ -312,6 +328,11 @@ body > #footer #social li img {
 }
 body > #footer #tc {
 	text-align: center;
+}
+body > #footer #tc p {
+	color: #75787b;
+	font-size: 0.8em;
+	margin: 3em 0em;
 }
 
 

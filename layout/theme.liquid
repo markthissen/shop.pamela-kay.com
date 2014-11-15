@@ -38,7 +38,7 @@
 		{{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
 		<script>jQuery('html').removeClass('no-js').addClass('js');</script>
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800|Vollkorn:400,700">
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,900|Open+Sans:300,300italic,400,400italic,600,700,800|Vollkorn:400,700">
 		<link rel="stylesheet" href="{{ 'bootstrap-3.3.0.min.css' | asset_url }}">
 		<link rel="stylesheet" href="{{ 'flexslider-2.2.0.css' | asset_url }}">
 		<link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
@@ -65,7 +65,7 @@
 	<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 		<div id="sticky-header">
 			<section id="promo">
-				<p>#ShopSmall and take advantage of 40% off using the promo code <strong>SHOPSMALL2014</strong>.</p>
+				<p>From 11/22 to 12/1, take 40% off using the promo code <strong>SHOPSMALL2014</strong>.</p>
 			</section>
 			<a href="/cart" title="You have {{ cart.item_count }} #UniquelyBeautiful {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart"><span class="qty">{{ cart.item_count }}</span></a>
 		</div>
@@ -97,7 +97,7 @@
 			</section>
 <!--/#acct -->
 			<section class="branding">
-				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay" title="Pamela Kay" class="logo">
+				<a href="/"><img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay | Hand made ~ like you" title="Pamela Kay | Hand made ~ like you" class="logo"></a>
 			</section>
 <!--/#branding -->
 			<section id="nav-search">
@@ -178,27 +178,28 @@
 
 		<footer id="footer">
 			<section class="search">
+				<h3>Can't find what you're looking for?</h3>
 				<form action="/search" method="get" class="search-form right" role="search">
 					<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}">
 					<input type="submit" id="search-submit" value="Search">
 				</form>
 			</section><!--/.search -->
 			<section id="brand-msg">
-				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay" title="Pamela Kay" class="logo">
+				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay | Hand made ~ like you" title="Pamela Kay | Hand made ~ like you" class="logo">
 				
 				<p>Limited production, handmade handbags and wallets designed to express your <strong>#UniquelyBeautiful</strong> personality and personal style.</p>
 			</section>
 <!--/#brand-msg -->
-			<section id="social">
-				<h3>Let's connect<h3>
-
+			<section id="social" class="container">
+				<h3>Let's connect</h3>
+				<p>We delight in all things <strong>#UniquelyBeautiful</strong>.<br>We invite you to share these things with us.</p>
 				<ul>
 					<li><a href="http://www.pinterest.com/bypamelakay/" target="_blank"><img src="{{ 'pinterest-icon.png' | asset_url }}" alt="Pinterest" title="Pinterest"></a></li><li><a href="http://www.facebook.com/bypamelakay" target="_blank"><img src="{{ 'facebook-icon.png' | asset_url }}" alt="Facebook" title="Facebook"></a></li><li><a href="http://twitter.com/ByPamelaKay" target="_blank"><img src="{{ 'twitter-icon.png' | asset_url }}" alt="Twitter" title="Twitter"></a></li><li><a href="http://plus.google.com/102122612522798062693" target="_blank"><img src="{{ 'google-plus-icon.png' | asset_url }}" alt="Google+" title="Google+"></a></li>
 				</ul>
 			</section>
 <!--/#social -->
-			<section id="tc">
-				<p>Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. All rights reserved.</p>
+			<section id="tc" class="container">
+				<p>Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. All&nbsp;rights&nbsp;reserved.</p>
 			</section>
 <!--/#tc -->
 		</footer>
