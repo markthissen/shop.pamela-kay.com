@@ -81,10 +81,10 @@
 
 
 		<header id="header">
-			<section id="acct">
+			<section id="acct" class="container">
 {% if shop.customer_accounts_enabled %}
 	{% if customer %}
-				Hello, {{ customer.first_name }}!<br>
+				Hello, <strong>{{ customer.first_name }}</strong>!<br>
 				<a href="/account">My Account</a> &nbsp;|&nbsp; {{ 'Log Out' | customer_logout_link }}
 	{% else %}
 				Please {{ 'log in' | customer_login_link }},
@@ -100,55 +100,44 @@
 				<a href="/"><img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay | Hand made ~ like you" title="Pamela Kay | Hand made ~ like you" class="logo"></a>
 			</section>
 <!--/#branding -->
-			<section id="nav-search">
-<!--
-				<section id="nav">
-					<ul class="nav navbar-nav">
+			<nav id="topnav">
+				<ul class="nav navbar-nav">
 {% for link in linklists.main-menu.links %}
-	{% assign has_sub_menu = false %}
-	{% assign has_sub_categories = false %}
-	{% assign parent_link_active = false %}
-	{% assign child_list_handle = link.title | handle %}
-	{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-		{% assign has_sub_menu = true %}
-		{% for l in linklists[child_list_handle].links %}
-			{% if page_title == l.title %}
-				{% assign parent_link_active = true %}
-			{% endif %}
-		{% endfor %}
-	{% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
-		{% assign has_sub_categories = true %}
+{% assign has_sub_menu = false %}
+{% assign has_sub_categories = false %}
+{% assign parent_link_active = false %}
+{% assign child_list_handle = link.title | handle %}
+{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+{% assign has_sub_menu = true %}
+{% for l in linklists[child_list_handle].links %}
+	{% if page_title == l.title %}
+		{% assign parent_link_active = true %}
 	{% endif %}
-						<li class="nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %}">
-						{{ link.title | link_to: link.url }}
-	{% if has_sub_menu or has_sub_categories %}
-							<ul class="sub-nav">
-								<li class="sub-nav-niblet"></li>
-		{% if has_sub_menu %}
-			{% for l in linklists[child_list_handle].links %}
-								<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if l.active %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ l.url }}">{{ l.title }}</a></li>
-			{% endfor %}
-		{% elsif has_sub_categories %}
-			{% for tag in link.object.all_tags %}
-								<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if current_tags contains tag %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a></li>
-			{% endfor %}
-		{% endif %}
-							</ul>
-	{% endif %}
-						</li>
 {% endfor %}
-						<li>
-							<form action="/search" method="get" class="search-form right" role="search">
-								<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}">
-								<input type="submit" id="search-submit" value="Search">
-							</form>
-						</li>
-					</ul>
-				</section>
-			-->
-<!--/#nav -->
-			</section>
-<!--/#nav-search -->
+{% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+{% assign has_sub_categories = true %}
+{% endif %}
+					<li class="nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %}">
+				{{ link.title | link_to: link.url }}
+{% if has_sub_menu or has_sub_categories %}
+						<ul class="sub-nav">
+							<li class="sub-nav-niblet"></li>
+{% if has_sub_menu %}
+	{% for l in linklists[child_list_handle].links %}
+							<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if l.active %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ l.url }}">{{ l.title }}</a></li>
+	{% endfor %}
+{% elsif has_sub_categories %}
+	{% for tag in link.object.all_tags %}
+							<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if current_tags contains tag %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a></li>
+	{% endfor %}
+{% endif %}
+						</ul>
+{% endif %}
+					</li>
+{% endfor %}
+				</ul>
+			</nav>
+<!--/#topnav -->
 		</header>
 <!--/body > #header -->
 
@@ -178,13 +167,13 @@
 
 		<footer id="footer">
 			<section class="search">
-				<h3>Can't find what you're looking for?</h3>
+				<h4>Can't find what you're looking for?</h4>
 				<form action="/search" method="get" class="search-form right" role="search">
 					<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}">
 					<input type="submit" id="search-submit" value="Search">
 				</form>
 			</section><!--/.search -->
-			<section id="brand-msg">
+			<section id="brand-msg" class="container">
 				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay | Hand made ~ like you" title="Pamela Kay | Hand made ~ like you" class="logo">
 				
 				<p>Limited production, handmade handbags and wallets designed to express your <strong>#UniquelyBeautiful</strong> personality and personal style.</p>
@@ -192,7 +181,7 @@
 <!--/#brand-msg -->
 			<section id="social" class="container">
 				<h3>Let's connect</h3>
-				<p>We delight in all things <strong>#UniquelyBeautiful</strong>.<br>We invite you to share these things with us.</p>
+				<p>We delight in discovering all things <strong>#UniquelyBeautiful</strong>. And we know you do too! We invite you to share that experience with us.</p>
 				<ul>
 					<li><a href="http://www.pinterest.com/bypamelakay/" target="_blank"><img src="{{ 'pinterest-icon.png' | asset_url }}" alt="Pinterest" title="Pinterest"></a></li><li><a href="http://www.facebook.com/bypamelakay" target="_blank"><img src="{{ 'facebook-icon.png' | asset_url }}" alt="Facebook" title="Facebook"></a></li><li><a href="http://twitter.com/ByPamelaKay" target="_blank"><img src="{{ 'twitter-icon.png' | asset_url }}" alt="Twitter" title="Twitter"></a></li><li><a href="http://plus.google.com/102122612522798062693" target="_blank"><img src="{{ 'google-plus-icon.png' | asset_url }}" alt="Google+" title="Google+"></a></li>
 				</ul>

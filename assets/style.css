@@ -115,9 +115,22 @@ body {
 h3 {
 	color: #83786f;
 	font-family: 'Open Sans', sans-serif;
-	font-size: 2.2em;
+	font-size: 2em;
 	font-weight: 300;
 	margin-bottom: 0.3em;
+}
+h4 {
+	color: #83786f;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.4em;
+	font-weight: 400;
+	margin-bottom: 0.3em;
+}
+a {
+	color: #8bb8e8;
+}
+a:hover {
+	color: #df1995;
 }
 
 
@@ -139,17 +152,11 @@ h3 {
  * ----------------------------------------------------------------------------
  */
 .container {
-
+	width: 93%;
 }
 strong {
 	color: #df1995;
 	font-weight: 600;
-}
-.logo {
-	display: block;
-	margin: 0px auto;
-	max-width: 240px;
-	width: 60%;
 }
 .hover-animation {
 	-webkit-transition: 0.4s linear all;
@@ -202,7 +209,7 @@ strong {
 
 }
 #promo p {
-	color: #fff;
+	color: #d7d2cb;
 	display: inline-block;
 	float: left;
 	font-size: 0.9em;
@@ -212,7 +219,9 @@ strong {
 	width: 80%;
 }
 #promo p strong {
-	color: #8bb8e8;
+	color: #fff;
+	letter-spacing: 0.1em;
+	font-weight: 700;
 }
 #cart {
 	background: #df1995 url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/shopping-bag-icon-ffffff.png') no-repeat;
@@ -238,11 +247,26 @@ body > #header {
 	padding-top: 60px;
 }
 body > #header #acct {
-	border: solid 1px #f0f;
-	text-align: right;
+	color: #97999b;
+	border-bottom: dotted 1px #83786f;
+	line-height: 1.3em;
+	padding: 1.2em;
+	text-align: center;
+}
+body > #header #acct a {
+	font-weight: 700;
 }
 body > #header .branding {
-	border: solid 1px #ff0;
+	margin: 2em 0em 2.4em 0em;
+}
+body > #header .branding .logo {
+	display: block;
+	margin: 0px auto;
+	max-width: 240px;
+	width: 60%;
+}
+body > #header #nav {
+	border: solid 1px #f90;
 }
 
 
@@ -290,17 +314,21 @@ body > #footer {
 
 }
 body > #footer .search {
-	border: solid 1px #f00;
 	text-align: center;
 }
 body > #footer #brand-msg {
 	padding: 2em;
+	text-align: center;
+}
+body > #footer #brand-msg .logo {
+	max-width: 200px;
+	width: 55%;
 }
 body > #footer #brand-msg p {
-	font-size: 1.2em;
+	font-size: 1.3em;
 	font-weight: 300;
-	margin-top: 3em;
-	text-align: center;
+	line-height: 1.7em;
+	margin-top: 1.4em;
 }
 body > #footer #social {
 	text-align: center;
@@ -314,7 +342,7 @@ body > #footer #social ul {
 	list-style: none;
 	margin: 0px auto;
 	padding: 0px;
-	width: 75%;
+	width: 85%;
 }
 body > #footer #social li {
 	display: inline-block;
@@ -355,8 +383,18 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 480px) {
-	#promo p {
+	.container {
 		width: 88%;
+	}
+	#promo p {
+		line-height: 60px;
+		text-align: right;
+		width: 87%;
+	}
+	body > #footer #brand-msg p {
+		font-size: 1.7em;
+		line-height: 1.6em;
+		margin-top: 1.2em;
 	}
 	body > #footer #social ul {
 		width: 50%;
@@ -426,7 +464,11 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 768px) {
-
+	#promo p {
+		font-size: 1.1em;
+		font-weight: 300;
+		width: 90%;
+	}
 }
 
 
@@ -470,7 +512,24 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 992px) {
-
+	.container {
+		width: 60%;
+	}
+	h3 {
+		font-size: 2.2em;
+		margin-bottom: 0.6em;
+	}
+	#promo p {
+		width: 92%;
+	}
+	body > #footer #brand-msg p {
+		font-size: 1.6em;
+		line-height: 1.6em;
+		margin-top: 1.2em;
+	}
+	body > #footer #social ul {
+		width: 30%;
+	}
 }
 
 
@@ -492,6 +551,8 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 1200px) {
-
+	#promo p {
+		width: 94%;
+	}
 }
 
