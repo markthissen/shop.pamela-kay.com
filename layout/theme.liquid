@@ -15,30 +15,29 @@
 		<link rel="apple-touch-icon" href="{{ 'icon.png' | asset_url }}">
 		<link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}">
 {% if page_description %}
-		<meta name="description" content="{{ page_description | escape }}">
+	{% if template contains 'index' %}
+		<meta name="description" content="Limited production, handmade handbags and wallets designed to express your #UniquelyBeautiful personality and personal style.">
+	{% elsif page_description %}
+		<meta name="description" content="{{ product.description | newline_to_br | strip_html | truncatewords: 12, '' | escape  }}...discover this #UniquelyBeautiful item.">
+	{% else %}
+		<meta name="description" content="Limited production, handmade handbags and wallets designed to express your #UniquelyBeautiful personality and personal style.">
+	{% endif %}
 {% endif %}
 		<link rel="canonical" href="{{ canonical_url }}">
+{{ content_for_header }}
+
+		{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+
+{% if template contains 'customers' %}  
+		{{ 'customer_area.js'  | shopify_asset_url | script_tag }}
+{% endif %}
 	
-	{% include 'open-graph-tags' %}
-	{% include 'twitter-card' %}
+<!-- Additional Shopify helpers that will likely be added to the global shopify_common.js some day soon. -->
+		{{ 'shopify_common.js'  | asset_url | script_tag }}
 
-	{{ content_for_header }}
+		{{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
-
-	{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
-	{% if template contains 'customers' %}  
-	{{ 'customer_area.js'  | shopify_asset_url | script_tag }}
-	{% endif %}
-	
-	<!-- Additional Shopify helpers that will likely be added to the global shopify_common.js some day soon. -->
-	{{ 'shopify_common.js'  | asset_url | script_tag }}
-
-	{{ 'option_selection.js' | shopify_asset_url | script_tag }}
-
-	{{ '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js' | script_tag }}
-	<script>jQuery('html').removeClass('no-js').addClass('js');</script>
-
-
+		<script>jQuery('html').removeClass('no-js').addClass('js');</script>
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800|Vollkorn:400,700">
 		<link rel="stylesheet" href="{{ 'bootstrap-3.3.0.min.css' | asset_url }}">
 		<link rel="stylesheet" href="{{ 'flexslider-2.2.0.css' | asset_url }}">
@@ -64,34 +63,87 @@
 
 
 	<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-		<section id="promo">
+		<div id="promo">
 			#ShopSmall and take advantage of 40% off using the promo code <strong>SHOPSMALL2014</strong>.
-<!--			
-			<div class="promo-carousel">
-				<ul class="slides">
-					<li>#ShopSmall and take advantage of 40% off using the promo code <strong>SHOPSMALL2014</strong>.</li>
-					<li>Take 40% off between 11/21 and Cyber Monday by using the promo code <strong>SHOPSMALL2014</strong>.</li>
-					<li>You are #UniquelyBeautiful. We celebrate you!</li>
-				</ul>
-			</div>
--->
-		</section>
+		</div>
 <!--/#promo -->
-
-
 		<header id="header">
+			<section id="acct">
 {% if shop.customer_accounts_enabled %}
-			<div class="customer-links">
 	{% if customer %}
-				Logged in as <a href="/account">{{ customer.first_name }}</a> · {{ 'Log out' | customer_logout_link }}
+				Hello, {{ customer.first_name }}!<br>
+				<a href="/account">My Account</a> &nbsp;|&nbsp; {{ 'Log Out' | customer_logout_link }}
 	{% else %}
-				{{ 'Log in' | customer_login_link }}
+				Please {{ 'log in' | customer_login_link }},
 		{% if shop.customer_accounts_optional %}
-				or {{ 'Create an account' | customer_register_link }}
+				{{ 'create an account' | customer_register_link }},
 		{% endif %}
+				or simply shop as our guest.
 	{% endif %}
-			</div>
 {% endif %}
+			</section>
+<!--/#acct -->
+			<section id="shopping-bag">
+				<a href="/cart">
+					<span class="item-count">{{ cart.item_count }}</span><br />
+						{{ cart.item_count | pluralize: 'item', 'items' }}<br />
+						({{ cart.total_price | money }})
+				</a>
+			</section>
+<!--/#shopping-bag -->
+			<section class="branding">
+				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay" title="Pamela Kay" class="logo">
+			</section>
+<!--/#branding -->
+			<section id="nav-search">
+<!--
+				<section id="nav">
+					<ul class="nav navbar-nav">
+{% for link in linklists.main-menu.links %}
+	{% assign has_sub_menu = false %}
+	{% assign has_sub_categories = false %}
+	{% assign parent_link_active = false %}
+	{% assign child_list_handle = link.title | handle %}
+	{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+		{% assign has_sub_menu = true %}
+		{% for l in linklists[child_list_handle].links %}
+			{% if page_title == l.title %}
+				{% assign parent_link_active = true %}
+			{% endif %}
+		{% endfor %}
+	{% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+		{% assign has_sub_categories = true %}
+	{% endif %}
+						<li class="nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %}">
+						{{ link.title | link_to: link.url }}
+	{% if has_sub_menu or has_sub_categories %}
+							<ul class="sub-nav">
+								<li class="sub-nav-niblet"></li>
+		{% if has_sub_menu %}
+			{% for l in linklists[child_list_handle].links %}
+								<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if l.active %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ l.url }}">{{ l.title }}</a></li>
+			{% endfor %}
+		{% elsif has_sub_categories %}
+			{% for tag in link.object.all_tags %}
+								<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if current_tags contains tag %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a></li>
+			{% endfor %}
+		{% endif %}
+							</ul>
+	{% endif %}
+						</li>
+{% endfor %}
+						<li>
+							<form action="/search" method="get" class="search-form right" role="search">
+								<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}">
+								<input type="submit" id="search-submit" value="Search">
+							</form>
+						</li>
+					</ul>
+				</section>
+			-->
+<!--/#nav -->
+			</section>
+<!--/#nav-search -->
 		</header>
 <!--/body > #header -->
 
@@ -100,133 +152,50 @@
 
 
 
-<!--
-	<div class="container">
 
-	<header class="row">
-		
-		<div class="social-links half column left-aligned">
-		{% include 'social-links' %}
-		</div>      
-		
-		{% comment %}
-		Note on checkout link: it is a good idea to avoid linking to /checkout directly because shops that use 
-		Paypal Express Checkout and/or Google Checkout have special checkout buttons on the /cart page. Also,
-		special instructions for the seller are entered on the /cart page. Finally, the universal tracking code 
-		of Google Analytics may not work if linking directly to the /checkout page.
-		{% endcomment %}
-		
-		<div class="half column right-aligned">
-				
-		<div class="cart-link">
-			<a href="/cart"><img src="{{ 'cart.svg' | asset_url }}" /> {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
-		</div>
-			
-		
-		
-		</div>
-		
-		{% comment %}
-		It would be nice if the logo was a shop setting, rather than a theme setting.
-		But for now, it is a theme setting. The shop logo is uploaded on the theme settings page.
-		Link to the theme settings page of currently published theme will always be:
-		http://www.shopify.com/admin/themes/current/settings.
-		To add theme settings to a theme, see this: http://docs.shopify.com/themes/theme-templates/settings
-		Theme settings are added to http://www.shopify.com/admin/themes/current#config/settings.html
-		{% endcomment %}
-	
-		<div class="masthead full column clear centered" role="banner">
-		{% if settings.use_logo %}
-		<a id="logo" href="/">
-			{{ 'logo.png' | asset_url | img_tag: shop.name }}
-		</a>
-		{% else %}
-		<a id="site-title" href="/">
-			{{ shop.name }}
-		</a>
-		{% endif %}
-		{% if template == 'index' %}
-		{% comment %}
-			Many SEO audit tools look for a h1 tag on the home page. Let's give 'em one.
-			Other pages should use the resource name as h1 tag. For example, on the product
-			page, the product title will use a h1 tag.
-		{% endcomment %}
-		<h1 class="hidden">{{ shop.name }}</h1>
-		{% endif %}
-		</div>
-		
-		<div class="clear full column">
-		
-		{% comment %}
-			Main Navigation 
-		{% endcomment %}
-		{% include 'site-nav' %}
-		
-		{% comment %}
-			IE8 and IE9 don't support the HTML5 placeholder attribute, so it's a good idea to use JavaScript
-			to show and hide the placeholder text.
-			Have a look in assets/shop.js.liquid to see sample JavaScript for this.
-		{% endcomment %}      
-		<form action="/search" method="get" class="search-form right" role="search">
-			<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}" />
-			<input type="submit" id="search-submit" value="Search" />
-		</form>
 
+
+
+		<div id="content">
+{% comment %}} We have a template file to render. That's what content_for_layout is for. {% endcomment %}
+			{{ content_for_layout }}
 		</div>
-		
-	</header>
+<!--/#content -->
 
-	<div id="main" role="main">
-		{% comment %}}
-		We have a template file to render.
-		That's what content_for_layout is for.
-		{% endcomment %}
-		{{ content_for_layout }}
-	</div>
 
-	<footer>
-	
-		{% if linklists.footer.links.size > 0 %}
-		<p role="navigation">
-		{% for link in linklists.footer.links %}
-		<a href="{{ link.url }}" title="{{ link.title }}"{% if link.active %} class="active"{% endif %}>{{ link.title }}</a>
-		{% endfor %}
-		</p>
-		{% endif %}
-		
-		{% unless shop.enabled_payment_types == empty %}
-		<div class="payment-types">
-		{% for type in shop.enabled_payment_types %}
-		<img width="40" src="{{ type | payment_type_img_url }}" />
-		{% endfor %}
-		</div>
-		{% endunless %}
-		
-		<p role="contentinfo" class="small-print">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
-
-	</footer>
--->
-<!--
-	{% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}
--->
-	<!--[if lt IE 8]>
-	<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-	<![endif]-->
-	
-<!--
-	
-	</div>--><!-- end of #container -->
 
 	
+
+
 
 
 
 
 		<footer id="footer">
-			<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay" title="Pamela Kay" class="logo">
-			<p>Limited production, handmade handbags and wallets designed to express your <strong>#UniquelyBeautiful</strong> personality and personal style.</p>
+			<section class="search">
+				<form action="/search" method="get" class="search-form right" role="search">
+					<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}">
+					<input type="submit" id="search-submit" value="Search">
+				</form>
+			</section><!--/.search -->
+			<section id="brand-msg">
+				<img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay" title="Pamela Kay" class="logo">
+				
+				<p>Limited production, handmade handbags and wallets designed to express your <strong>#UniquelyBeautiful</strong> personality and personal style.</p>
+			</section>
+<!--/#brand-msg -->
+			<section id="social">
+				<h3>Let's connect<h3>
 
-			<p id="copyright">&copy; 2014 Pamela Kay.</p>
+				<ul>
+					<li><a href="http://www.pinterest.com/bypamelakay/" target="_blank"><img src="{{ 'pinterest-icon.png' | asset_url }}" alt="Pinterest" title="Pinterest"></a></li><li><a href="http://www.facebook.com/bypamelakay" target="_blank"><img src="{{ 'facebook-icon.png' | asset_url }}" alt="Facebook" title="Facebook"></a></li><li><a href="http://twitter.com/ByPamelaKay" target="_blank"><img src="{{ 'twitter-icon.png' | asset_url }}" alt="Twitter" title="Twitter"></a></li><li><a href="http://plus.google.com/102122612522798062693" target="_blank"><img src="{{ 'google-plus-icon.png' | asset_url }}" alt="Google+" title="Google+"></a></li>
+				</ul>
+			</section>
+<!--/#social -->
+			<section id="tc">
+				<p>Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. All rights reserved.</p>
+			</section>
+<!--/#tc -->
 		</footer>
 <!--/body > #footer -->
 
@@ -239,18 +208,19 @@
 
 
 
-		<script src="{{ 'angular-1.3.2.min.js' | asset_url }}"></script>
-		<script src="{{ 'angular-route-1.3.2.min.js' | asset_url }}"></script>
-		<script src="{{ 'angular-animate-1.3.2.min.js' | asset_url }}"></script>
-		<script src="{{ 'jquery-1.11.1.min.js' | asset_url }}"></script>
-		<script src="{{ 'jquery-ui-1.11.2.min.js' | asset_url }}"></script>
+		<script async src="//assets.pinterest.com/js/pinit.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-route.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-animate.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 		<script src="{{ 'jquery.flexslider-2.2.0.min.js' | asset_url }}"></script>
 		<script src="{{ 'bootstrap-3.3.0.min.js' | asset_url }}"></script>
 		<script src="{{ 'app.js' | asset_url }}"></script>
 		<script src="{{ 'shop.js' | asset_url }}"></script>
 		<script>
-			$(window).load(function() {
-				$('.promo-carousel').flexslider();
+			$(document).ready(function() {
+
 			});
 		</script>
 	</body>

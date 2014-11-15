@@ -19,14 +19,6 @@
  */
 
 
-
-
-
-
-
-
-
-
 /*
 Primary:
 Pantone 541 C	#003c71
@@ -74,8 +66,49 @@ Pantone Black 7 C	#3d3935
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 1.0 Reset
+ * ----------------------------------------------------------------------------
+ */
+* {
+	text-shadow: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 2.0 Basic structure
+ * ----------------------------------------------------------------------------
+ */
+* {
+	font-family: 'Open Sans', sans-serif;
+}
 body {
-	background: #f5f4f2;	/* Pantone Warm Gray 1 C 25% */
+	background: #fff;
 }
 
 
@@ -83,78 +116,305 @@ body {
 
 
 
-#promo {
-	background: url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/003c71-95.png');
-	color: #fff;
+
+
+
+
+
+
+
+
+
+/**
+ * 3.0 Repeatable patterns
+ * ----------------------------------------------------------------------------
+ */
+.container {
+
+}
+.logo {
 	display: block;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 0.8em;
-	font-weight: 400;
-	padding: 1em 1.6em;
-	position: fixed;
-	text-align: center;
-	width: 100%;
-	z-index: 99;
-}
-#promo strong {
-	color: #df1995;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.0em;
-	font-weight: 700;
-}
-
-.customer-links {
-	background: #ebe8e5; /* Pantone Warm Gray 1 C 50% */
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.1em;
-	font-weight: 400;
-	padding: 6em 1em 1em 1em;
-	text-align: center;
-}
-
-
-
-
-
-
-
-
-
-
-
-body > #footer {
-	background: #ebe8e5; /* Pantone Warm Gray 1 C 50% */
-	bottom: 0;
-	min-height: 160px;
-	padding: 2.8em 1.6em 1.6em 1.6em;
-	position: absolute;
-	text-align: center;
-	width: 100%;
-}
-body > #footer .logo {
-	height: auto;
-	margin-bottom: 2.4em;
+	margin: 0px auto;
 	max-width: 240px;
-	width: 65%;
+	width: 60%;
 }
-body > #footer p {
-	color: #53565a;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.0em;
-	font-weight: 300;
-	line-height: 1.6em;
+.hover-animation {
+	-webkit-transition: 0.4s linear all;
+	-moz-transition: 0.4s linear all;
+	-o-transition: 0.4s linear all;
+	transition: 0.4s linear all;
 }
-body > #footer p strong {
-	font-family: 'Open Sans', sans-serif;
-	color: #df1995;
-	font-weight: 400;
+.fade-animation.ng-enter,
+.fade-animation.ng-leave {
+	-webkit-transition: 0.5s linear all;
+	-moz-transition: 0.5s linear all;
+	-o-transition: 0.5s linear all;
+	transition: 0.5s linear all;
 }
-body > #footer p#copyright {
-	color: #75787b;
-	font-size: 0.8em;
-	font-weight: 400;
-	margin: 2.8em 0em 0em 0em;
+.fade-animation.ng-enter,
+.fade-animation.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+.fade-animation.ng-leave,
+.fade-animation.ng-enter.ng-leave-active {
+	opacity: 1;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 4.0 body > #header
+ * ----------------------------------------------------------------------------
+ */
+#promo {
+	background: #003c71;
+}
+body > #header {
+	border: solid 8px #000;
+}
+body > #header #acct {
+	border: solid 1px #f0f;
+}
+body > #header #shopping-bag {
+	border: solid 1px #0ff;
+}
+body > #header .branding {
+	border: solid 1px #ff0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 5.0 #content
+ * ----------------------------------------------------------------------------
+ */
+#content {
+	border: solid 6px #000;
+	min-height: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 6.0 body > #footer
+ * ----------------------------------------------------------------------------
+ */
+body > #footer {
+	border: solid 4px #000;
+}
+body > #footer .search {
+	border: solid 1px #f00;
+}
+body > #footer #social {
+	border: solid 1px #0f0;
+}
+body > #footer #social ul {
+	list-style: none;
+	margin: 0px auto;
+	padding: 0px;
+	width: 75%;
+}
+body > #footer #social li {
+	display: inline-block;
+	text-align: center;
+	width: 25%;
+}
+body > #footer #social li img {
+	-webkit-border-radius: 50em; -moz-border-radius: 50em; -o-border-radius: 50em; border-radius: 50em;
+	height: auto;
+	width: 90%;
+}
+body > #footer #brand-msg {
+	border: solid 1px #00f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.1 Styles for iPhone landscape and up
+ * ----------------------------------------------------------------------------
+ */
+@media (min-width: 480px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.2 Styles for extra small devices only
+ * ----------------------------------------------------------------------------
+ */
+@media (max-width: 767px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.3 Styles for small devices (tablet) only. Galaxy Tab 4 (600px), iPad (768px)
+ * ----------------------------------------------------------------------------
+ */
+@media (min-width: 600px) and (max-width: 991px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.4 Styles for small, medium, and large devices
+ * ----------------------------------------------------------------------------
+ */
+@media (min-width: 768px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.5 Styles for extra small and small devices
+ * ----------------------------------------------------------------------------
+ */
+@media (max-width: 991px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.6 Styles for medium and large devices
+ * ----------------------------------------------------------------------------
+ */
+@media (min-width: 992px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.7 Styles for large devices only
+ * ----------------------------------------------------------------------------
+ */
+@media (min-width: 1200px) {
+
+}
 
