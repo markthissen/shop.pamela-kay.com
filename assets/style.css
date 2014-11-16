@@ -265,8 +265,11 @@ body > #header .branding .logo {
 	max-width: 240px;
 	width: 60%;
 }
-body > #header #nav {
-	border: solid 1px #f90;
+body > #header #topnav ul {
+	list-style: none;
+}
+body > #header #topnav li {
+	display: inline-block;
 }
 
 
@@ -407,10 +410,16 @@ body > #footer #tc p {
 		width: 87%;
 	}
 	body > #footer #brand-msg p {
-		font-size: 1.7em;
+		font-size: 1.6em;
 		line-height: 1.6em;
 		margin-top: 1.2em;
 	}
+
+
+	body.template-collection #content .prod-container {
+		width: 50%;
+	}
+
 	body > #footer #social ul {
 		width: 50%;
 	}
@@ -479,10 +488,17 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 768px) {
+	.container {
+		width: 84.5%;
+	}
 	#promo p {
 		font-size: 1.1em;
 		font-weight: 300;
 		width: 90%;
+	}
+
+	body.template-collection #content .prod-container {
+		width: 33.33%;
 	}
 }
 
@@ -540,7 +556,7 @@ body > #footer #tc p {
 
 
 	body.template-collection #content .prod-container {
-		width: 33.33%;
+
 	}
 
 

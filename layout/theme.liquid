@@ -84,8 +84,7 @@
 			<section id="acct" class="container">
 {% if shop.customer_accounts_enabled %}
 	{% if customer %}
-				Hello, <strong>{{ customer.first_name }}</strong>!<br>
-				<a href="/account">My Account</a> &nbsp;|&nbsp; {{ 'Log Out' | customer_logout_link }}
+				Hello, <strong>{{ customer.first_name }}</strong> &nbsp;|&nbsp; <a href="/account">My Account</a> &nbsp;|&nbsp; {{ 'Log Out' | customer_logout_link }}
 	{% else %}
 				Please {{ 'log in' | customer_login_link }},
 		{% if shop.customer_accounts_optional %}
@@ -175,7 +174,7 @@
 			</section><!--/.search -->
 			<section id="social" class="container">
 				<h3>Let's connect</h3>
-				<p>We delight in discovering all things <strong>#UniquelyBeautiful</strong>. And we know you do too! We invite you to share that experience with us.</p>
+				<p>We delight in discovering all things <strong>#UniquelyBeautiful</strong>. And we know you do too(!), and invite you to share that experience with us.</p>
 				<ul>
 					<li><a href="http://www.pinterest.com/bypamelakay/" target="_blank"><img src="{{ 'pinterest-icon.png' | asset_url }}" alt="Pinterest" title="Pinterest"></a></li><li><a href="http://www.facebook.com/bypamelakay" target="_blank"><img src="{{ 'facebook-icon.png' | asset_url }}" alt="Facebook" title="Facebook"></a></li><li><a href="http://twitter.com/ByPamelaKay" target="_blank"><img src="{{ 'twitter-icon.png' | asset_url }}" alt="Twitter" title="Twitter"></a></li><li><a href="http://plus.google.com/102122612522798062693" target="_blank"><img src="{{ 'google-plus-icon.png' | asset_url }}" alt="Google+" title="Google+"></a></li>
 				</ul>
