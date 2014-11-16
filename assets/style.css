@@ -544,6 +544,8 @@ body > #footer #tc p {
  */
 @media (min-width: 992px) {
 	.container {
+		max-width: 1100px;
+		min-width: 720px;
 		width: 60%;
 	}
 	h3 {
