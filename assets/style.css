@@ -152,7 +152,7 @@ a:hover {
  * ----------------------------------------------------------------------------
  */
 .container {
-	width: 93%;
+	width: 92%;
 }
 strong {
 	color: #df1995;
@@ -294,6 +294,13 @@ body > #header #nav {
 	height: auto;
 	width: 100%;
 }
+body.template-collection #content .product-list {
+
+}
+body.template-collection #content .prod-container {
+	margin: 0px;
+	padding: 0px;
+}
 
 
 
@@ -319,20 +326,7 @@ body > #footer {
 body > #footer .search {
 	text-align: center;
 }
-body > #footer #brand-msg {
-	padding: 2em;
-	text-align: center;
-}
-body > #footer #brand-msg .logo {
-	max-width: 200px;
-	width: 55%;
-}
-body > #footer #brand-msg p {
-	font-size: 1.3em;
-	font-weight: 300;
-	line-height: 1.7em;
-	margin-top: 1.4em;
-}
+
 body > #footer #social {
 	text-align: center;
 	padding-bottom: 2em;
@@ -357,13 +351,31 @@ body > #footer #social li img {
 	height: auto;
 	width: 90%;
 }
+body > #footer #brand-msg {
+	background: #f7f7f7;
+	padding: 2em;
+	text-align: center;
+}
+body > #footer #brand-msg .logo {
+	max-width: 200px;
+	width: 60%;
+}
+body > #footer #brand-msg p {
+	color: #83786f;
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.7em;
+	margin-top: 1.7em;
+}
 body > #footer #tc {
+	background: #f7f7f7;
 	text-align: center;
 }
 body > #footer #tc p {
-	color: #75787b;
+	color: #a59c94;
 	font-size: 0.8em;
-	margin: 3em 0em;
+	margin-bottom: 0px;
+	padding: 3em 0em;
 }
 
 
@@ -525,10 +537,21 @@ body > #footer #tc p {
 	#promo p {
 		width: 92%;
 	}
+
+
+	body.template-collection #content .prod-container {
+		width: 33.33%;
+	}
+
+
+	body > #footer #brand-msg {
+		padding-top: 3em;
+	}
 	body > #footer #brand-msg p {
-		font-size: 1.6em;
+		font-size: 1.3em;
 		line-height: 1.6em;
-		margin-top: 1.2em;
+		margin: 2em auto 0em auto;
+		max-width: 600px;
 	}
 	body > #footer #social ul {
 		width: 30%;
