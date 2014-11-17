@@ -265,11 +265,34 @@ body > #header .branding .logo {
 	max-width: 240px;
 	width: 60%;
 }
+body > #header #topnav {
+	display: block;
+	text-align: center;
+}
 body > #header #topnav ul {
+	display: inline-block;
 	list-style: none;
+	margin: 0.6em auto 1.6em auto;
+	padding: 0px;
 }
 body > #header #topnav li {
 	display: inline-block;
+}
+body > #header #topnav li a {
+	color: #4698cb;
+	font-size: 0.85em;
+	font-weight: 300;
+	letter-spacing: 0.2em;
+	padding: 0.4em 1.6em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+body > #header #topnav li.active a,
+body > #header #topnav li a:hover {
+	color: #df1995;
+}
+body > #header #topnav li.active a {
+	font-weight: 400;
 }
 
 
