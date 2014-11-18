@@ -112,19 +112,26 @@ Pantone Black 7 C	#3d3935
 body {
 	background: #fff;
 }
+h1 {
+	font-size: 2em;
+	font-weight: 300;
+	line-height: 1.4em;
+	margin: 0em 0em 1em 0em;
+}
 h3 {
 	color: #83786f;
-	font-family: 'Open Sans', sans-serif;
 	font-size: 2em;
 	font-weight: 300;
 	margin-bottom: 0.3em;
 }
 h4 {
-	color: #83786f;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.4em;
+	color: #53565a;
+	font-size: 0.9em;
 	font-weight: 400;
-	margin-bottom: 0.3em;
+	letter-spacing: 0.2em;
+	margin-top: 1.2em;
+	margin-bottom: 1.1em;
+	text-transform: uppercase;
 }
 a {
 	color: #8bb8e8;
@@ -327,7 +334,44 @@ body.template-collection #content .prod-container {
 	margin: 0px;
 	padding: 0px;
 }
-
+div.product-photos {
+	-webkit-box-shadow: none; -moz-box-shadow: none; -o-box-shadow: none; box-shadow: none;
+	padding: 0px;
+}
+.product-price {
+	color: #4698cb;
+	font-family: 'Vollkorn', serif;
+	font-size: 2.4em;
+}
+#product-add input[type="submit"] {
+	border: none;
+	background: #df1995;
+	color: #fff;
+	display: block;
+	margin-top: 0.8em;
+	padding: 1em 2em;
+	width: 100%;
+}
+#product-add input[type="submit"]:hover {
+	background: #4698cb;
+}
+#product-description {
+	margin-top: 2em;
+}
+.product-details ul {
+	padding: 0px;
+}
+.product-details p,
+.product-details li {
+	color: #a59c94;
+	font-family: 'Vollkorn', serif;
+	font-size: 1em;
+	font-weight: 400;
+	line-height: 1.6em;
+}
+.product-details li {
+	margin-left: 1.2em;
+}
 
 
 
