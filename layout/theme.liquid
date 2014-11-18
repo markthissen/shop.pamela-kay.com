@@ -166,11 +166,13 @@
 
 		<footer id="footer">
 			<section class="search">
-				<h4>Can't find what you're looking for?</h4>
-				<form action="/search" method="get" class="search-form right" role="search">
-					<input name="q" type="search" id="search-field" placeholder="Search store..." value="{{ search.terms | escape }}">
-					<input type="submit" id="search-submit" value="Search">
-				</form>
+				<div class="container">
+					<h4>Can't find what you're looking for?</h4>
+					<form action="/search" method="get" class="search-form right" role="search">
+						<input name="q" type="search" id="search-field" placeholder="Type keywords like 'brown clutch'" value="{{ search.terms | escape }}">
+						<input type="submit" id="search-submit" value="Search">
+					</form>
+				</div><!--/.container -->
 			</section><!--/.search -->
 			<section id="social" class="container">
 				<h3>Let's connect</h3>

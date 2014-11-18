@@ -6,7 +6,7 @@
 				<meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
 				<meta itemprop="image" content="{{ product | img_url: 'grande' }}">
 				<form action="/cart/add" method="post" enctype="multipart/form-data">
-					<div class="product-photos flexslider col-xs-12 col-sm-6 col-md-7 col-lg-7">
+					<div class="product-photos flexslider col-xs-12 col-sm-7 col-md-7 col-lg-7">
 {% if product.images.size > 1 %}
 						<ul class="slides">
 	{% for image in product.images %}
@@ -20,7 +20,7 @@
 
 
 
-					<div class="product-details col-xs-12 col-sm-6 col-md-5 col-lg-5">
+					<div class="product-details col-xs-12 col-sm-5 col-md-5 col-lg-5">
 						<h1 itemprop="name">{{ product.title }}</h1>
 
 						<div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">

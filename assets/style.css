@@ -113,15 +113,16 @@ body {
 	background: #fff;
 }
 h1 {
-	font-size: 2em;
+	font-size: 1.6em;
 	font-weight: 300;
-	line-height: 1.4em;
+	line-height: 1.3em;
 	margin: 0em 0em 1em 0em;
 }
 h3 {
 	color: #83786f;
 	font-size: 2em;
 	font-weight: 300;
+	margin-top: 0px;
 	margin-bottom: 0.3em;
 }
 h4 {
@@ -348,6 +349,7 @@ div.product-photos {
 	background: #df1995;
 	color: #fff;
 	display: block;
+	font-weight: 600;
 	margin-top: 0.8em;
 	padding: 1em 2em;
 	width: 100%;
@@ -396,10 +398,23 @@ body > #footer {
 body > #footer .search {
 	text-align: center;
 }
+body > #footer .search .container {
+	border-top: dotted 1px #83786f;
+	border-bottom: dotted 1px #83786f;
+	display: inline-block;
+	margin: 3em auto;
+	padding: 2em 0em 3.6em 0em;
+}
+body > #footer .search input[type=search] {
+	font-size: 1.6em;
+	font-weight: 300;
+	padding: 0.2em;
+	width: 50%;
+}
 
 body > #footer #social {
 	text-align: center;
-	padding-bottom: 2em;
+	padding-bottom: 3.6em;
 }
 body > #footer #social p {
 	font-size: 1em;
@@ -615,6 +630,12 @@ body > #footer #tc p {
 		min-width: 720px;
 		width: 60%;
 	}
+	h1 {
+		font-size: 1.8em;
+		font-weight: 300;
+		line-height: 1.4em;
+		margin: 0em 0em 1em 0em;
+	}
 	h3 {
 		font-size: 2.2em;
 		margin-bottom: 0.6em;
@@ -662,6 +683,12 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 1200px) {
+	h1 {
+		font-size: 2em;
+		font-weight: 300;
+		line-height: 1.4em;
+		margin: 0em 0em 1em 0em;
+	}
 	#promo p {
 		width: 94%;
 	}
