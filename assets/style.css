@@ -126,7 +126,7 @@ h3 {
 	margin-bottom: 0.3em;
 }
 h4 {
-	color: #53565a;
+	color: #3d3935;
 	font-size: 0.9em;
 	font-weight: 400;
 	letter-spacing: 0.2em;
@@ -328,6 +328,25 @@ body > #header #topnav li.active a {
 	height: auto;
 	width: 100%;
 }
+
+
+
+
+body.template-index #content .content-cell {
+	height: 200px;
+}
+body.template-index #content .cell1 {  background: #d9d9d6;  }
+body.template-index #content .cell2 {  background: #d0d0ce;  }
+body.template-index #content .cell3 {  background: #c8c9c7;  }
+body.template-index #content .cell4 {  background: #bbbcbc;  }
+body.template-index #content .cell5 {  background: #b1b3b3;  }
+body.template-index #content .cell6 {  background: #a7a8aa;  }
+body.template-index #content .cell7 {  background: #97999b;  }
+
+
+
+
+
 body.template-collection #content .product-list {
 
 }
@@ -365,7 +384,7 @@ div.product-photos {
 }
 .product-details p,
 .product-details li {
-	color: #a59c94;
+	color: #888b8d;
 	font-family: 'Vollkorn', serif;
 	font-size: 1em;
 	font-weight: 400;
@@ -413,8 +432,8 @@ body > #footer .search input[type=search] {
 }
 
 body > #footer #social {
-	text-align: center;
 	padding-bottom: 3.6em;
+	text-align: center;
 }
 body > #footer #social p {
 	font-size: 1em;
@@ -631,7 +650,7 @@ body > #footer #tc p {
 		width: 60%;
 	}
 	h1 {
-		font-size: 1.8em;
+		font-size: 1.5em;
 		font-weight: 300;
 		line-height: 1.4em;
 		margin: 0em 0em 1em 0em;
