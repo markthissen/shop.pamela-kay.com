@@ -398,11 +398,42 @@ div.product-photos {
 
 
 
-.shopping-bag td:nth-of-type(1):before { content: "Item"; }
-.shopping-bag td:nth-of-type(2):before { content: "Price"; }
-.shopping-bag td:nth-of-type(3):before { content: "Quantity"; }
-.shopping-bag td:nth-of-type(4):before { content: "Total"; }
-.shopping-bag td:nth-of-type(5):before { content: ""; }
+.shopping-bag-table {
+	border-collapse: collapse; 
+	width: 100%; 
+}
+
+/* Zebra striping */
+.shopping-bag-table tbody tr:nth-of-type(odd) { 
+	background: rgba(217, 217, 214, 0.4); 
+}
+.shopping-bag-table thead th {
+	border-bottom: solid 1px #d9d9d6;
+	font-weight: bold;
+}
+
+.shopping-bag-table td,
+.shopping-bag-table th {
+	padding: 6px;
+	text-align: left;
+}
+
+.ndaq-sec-filing-search-filter {
+	background: rgba(217, 217, 214, 0.60);;
+	margin: 30px 0px;
+	padding: 0.5em;
+}
+.ndaq-sec-filing-search-filter input[type=text],
+.ndaq-sec-filing-search-filter select,
+.ndaq-sec-filing-search-filter select option {
+	font-size: 1.2em;
+	width: 100%;
+}
+/* Zebra striping */
+.shopping-bag-table tbody tr:nth-of-type(odd) { 
+/*	background: rgba(217, 217, 214, 0.4);  */
+}
+
 
 
 
@@ -555,7 +586,54 @@ body > #footer #tc p {
  * ----------------------------------------------------------------------------
  */
 @media (max-width: 767px) {
+	/* Force table to not be like tables anymore */
+	.shopping-bag-table,	/* table element */
+	.shopping-bag-table thead,
+	.shopping-bag-table tbody,
+	.shopping-bag-table th,
+	.shopping-bag-table td,
+	.shopping-bag-table tr {
+		display: block; 
+	}
 
+	.shopping-bag-table {
+		min-width: 280px;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.shopping-bag-table thead tr {
+		left: -9999px;
+		position: absolute;
+		top: -9999px;
+
+	}
+
+	.shopping-bag-table tr {
+
+	}
+
+	.shopping-bag-table td {
+		/* Behave  like a "row" */
+		border: none;
+		font-size: 0.9em;
+		position: relative;
+		padding-left: 50%; 
+	}
+
+	.shopping-bag-table td:before {
+		font-weight: bold;
+		left: 6px;
+		padding-right: 10px; 
+		position: absolute;
+		top: 6px;
+		white-space: nowrap;
+		width: 45%; 
+	}
+	.shopping-bag-table td:nth-of-type(1):before { content: "Item"; }
+	.shopping-bag-table td:nth-of-type(2):before { content: "Price"; }
+	.shopping-bag-table td:nth-of-type(3):before { content: "Quantity"; }
+	.shopping-bag-table td:nth-of-type(4):before { content: "Total"; }
+	.shopping-bag-table td:nth-of-type(5):before { content: ""; }
 }
 
 
