@@ -17,66 +17,32 @@
 
 					<tbody>
 {% for item in cart.items %}    
-
-					{% comment %}
-					Determining the handle of the collection that was last seen for the 'continue shopping' link.
-					{% endcomment %}
-
-					{% assign collection_url = item.product.collections.last.url %}
-					{% if collection_url == '/collections/frontpage' or collection_url == blank %}
-					{% assign collection_url = '/collections/all' %}
-					{% endif %}
-
-					{% if forloop.first %}
-					{% assign continue_shopping_url = collection_url %}
-					{% endif %}
-
-					<tr>
-					<td class="hide-on-small">
-					<a href="{{ collection_url }}{{ item.url }}">
-					<img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}" />
-					</a>
-					</td>
-					<td>
-					<h2 class="delta">
-					<a href="{{ collection_url }}{{ item.url }}">
-					{{ item.title }}
-					</a>
-					</h2>
-					{% comment %}
-					Line Item Properties
-					{% endcomment %}
-					{% if item.properties.size > 0 %}
-					<p>
-					{% for p in item.properties %}
-					{% unless p.last == blank %}
-					{{ p.first }}:
-					{% if p.last contains '/uploads/' %}
-					<a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
-					{% else %}
-					{{ p.last }}
-					{% endif %}
-					<br />
-					{% endunless %}
-					{% endfor %}
-					</p>
-					{% endif %}
-					<h3 class="epsilon">{{ item.vendor }}</h3>
-					</td>
-					<td class="hide-on-small">{{ item.price | money }}</td>
-					<td>
-					<input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}" />
-					</td>
-					<td>{{ item.line_price | money }}</td>
-					<td class="hide-on-small">
-					<a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
-					</td>
-					</tr>
-					{% endfor %}
-
+	{% comment %}Determining the handle of the collection that was last seen for the 'continue shopping' link.{% endcomment %}
+	{% assign collection_url = item.product.collections.last.url %}
+	{% if collection_url == '/collections/frontpage' or collection_url == blank %}
+		{% assign collection_url = '/collections/all' %}
+	{% endif %}
+	{% if forloop.first %}
+		{% assign continue_shopping_url = collection_url %}
+	{% endif %}
+						<tr>
+							<td>
+								<a href="{{ collection_url }}{{ item.url }}">
+									<img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}">
+									{{ item.title }}
+								</a>
+							</td>
+							<td>{{ item.price | money }}</td>
+							<td><input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}"></td>
+							<td>{{ item.line_price | money }}</td>
+							<td>
+								<a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+							</td>
+						</tr>
+{% endfor %}
 					</tbody>
-
 				</table>
+
 
 				{% comment %}
 				For the checkout and update buttons to work, they need to use
