@@ -333,7 +333,7 @@ body > #header #topnav li.active a {
 
 
 body.template-index #content .content-cell {
-	height: 200px;
+	padding: 0px;
 }
 body.template-index #content .cell1 {  background: #d9d9d6;  }
 body.template-index #content .cell2 {  background: #d0d0ce;  }

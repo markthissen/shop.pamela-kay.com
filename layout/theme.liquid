@@ -222,6 +222,13 @@
 					directionNav: false
 				});
 			});
+
+
+			$(window).resize(function(){
+				$('.content-cell').each(function() {
+					$(this).height($(this).width());
+				});
+			}).resize();
 		</script>
 	</body>
 </html>
