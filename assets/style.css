@@ -280,7 +280,7 @@ body > #header #topnav {
 body > #header #topnav ul {
 	display: inline-block;
 	list-style: none;
-	margin: 0.6em auto 1.6em auto;
+	margin: 0em auto 1.6em auto;
 	padding: 0px;
 }
 body > #header #topnav li {
@@ -332,16 +332,44 @@ body > #header #topnav li.active a {
 
 
 
+body.template-index #content * {
+	
+}
 body.template-index #content .content-cell {
 	padding: 0px;
 }
-body.template-index #content .cell1 {  background: #d9d9d6;  }
-body.template-index #content .cell2 {  background: #d0d0ce;  }
-body.template-index #content .cell3 {  background: #c8c9c7;  }
-body.template-index #content .cell4 {  background: #bbbcbc;  }
-body.template-index #content .cell5 {  background: #b1b3b3;  }
-body.template-index #content .cell6 {  background: #a7a8aa;  }
-body.template-index #content .cell7 {  background: #97999b;  }
+body.template-index #content .cell1 {
+	background: #d9d9d6 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-11-26_C-SPLR3_large.jpg');
+	background-size: auto 100%;
+	background-position: 50% 50%;
+}
+body.template-index #content .cell2 {
+	background: #d0d0ce url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/home-cobble-stone.jpg');
+	background-size: 100% 100%;
+}
+body.template-index #content .cell3 {
+	background: #c8c9c7 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-12-9_W-GRNM2_large.jpg');
+	background-position: 50% 40%;
+	background-size: 105% auto;
+}
+body.template-index #content .cell4 {
+	background: #bbbcbc url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-11-26_C-STORM4_grande.jpg');
+	background-position: 50% 50%;
+	background-size: auto 120%;
+}
+body.template-index #content .cell5 {
+	background: #b1b3b3 url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/home-ivy.jpg');
+	background-size: 100% 100%;
+}
+body.template-index #content .cell6 {
+	background: #a7a8aa url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/home-graffiti.jpg');
+	background-size: 100% 100%;
+}
+body.template-index #content .cell7 {
+	background: #97999b url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-11-26_W-TAUP2_large.jpg');
+	background-position: 50% 50%;
+	background-size: auto 120%;
+}
 
 
 

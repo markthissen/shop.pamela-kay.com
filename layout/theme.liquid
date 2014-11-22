@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<title>
-			{{ page_title }}{% if current_tags %} | tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} | Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} | Shop | {{ shop.name }}{% endunless %}
+			{{ page_title }}{% if current_tags %} | tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} (Page {{ current_page }}){% endif %}{% unless page_title contains shop.name %} | Shop | {{ shop.name }}{% endunless %}
 		</title>
 		<link rel="apple-touch-icon" href="{{ 'icon.png' | asset_url }}">
 		<link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}">
@@ -66,7 +66,7 @@
 	<body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
 		<div id="sticky-header">
 			<section id="promo">
-				<p>From 11/22 to 12/1, take 40% off using the promo code <strong>SHOPSMALL2014</strong>.</p>
+				<p>Take 40% off using the promo code <strong>SHOPSMALL2014</strong>. Offer ends 12/1.</p>
 			</section>
 			<a href="/cart" title="You have {{ cart.item_count }} #UniquelyBeautiful {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart"><span class="qty">{{ cart.item_count }}</span></a>
 		</div>
@@ -226,9 +226,15 @@
 
 
 			$(window).resize(function(){
+{% if template contains 'index' %}
 				$('.content-cell').each(function() {
 					$(this).height($(this).width());
 				});
+
+
+				//$('.cell1').width( $('.cell1').width() + 1 );
+				//$('.cell5').width( $('.cell5').width() + 1 );
+{% endif %}
 			}).resize();
 		</script>
 	</body>
