@@ -335,7 +335,9 @@ body > #header #topnav li.active a {
 body.template-index #content * {
 	
 }
+body.template-index #content .row,
 body.template-index #content .content-cell {
+	margin: 0px;
 	padding: 0px;
 }
 body.template-index #content .cell1 {
