@@ -1,21 +1,21 @@
-
 			<h1>Shopping Bag</h1>
 
 {% if cart.item_count > 0 %}
 			<form action="/cart" method="post">
-				<table class="shopping-bag-table">
-					<thead>
-						<tr>
-							<th>Item</th>
-							<th>Price</th>
-							<th>Quantity</th>
-							<th>Total</th>
-							<th>&nbsp;</th>
-						</tr>
-					</thead>
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+					<table class="shopping-bag-table">
+						<thead>
+							<tr>
+								<th class="item">Item</th>
+								<th class="price">Price</th>
+								<th class="quantity">Quantity</th>
+								<th class="total">Total</th>
+								<th class="delete">&nbsp;</th>
+							</tr>
+						</thead>
 
 
-					<tbody>
+						<tbody>
 {% for item in cart.items %}    
 	{% comment %}Determining the handle of the collection that was last seen for the 'continue shopping' link.{% endcomment %}
 	{% assign collection_url = item.product.collections.last.url %}
@@ -25,54 +25,44 @@
 	{% if forloop.first %}
 		{% assign continue_shopping_url = collection_url %}
 	{% endif %}
-						<tr>
-							<td>
-								<a href="{{ collection_url }}{{ item.url }}">
-									<img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}">
-									{{ item.title }}
-								</a>
-							</td>
-							<td>{{ item.price | money }}</td>
-							<td><input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}"></td>
-							<td>{{ item.line_price | money }}</td>
-							<td>
-								<a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
-							</td>
-						</tr>
+							<tr>
+								<td class="item"><a href="{{ collection_url }}{{ item.url }}"><img src="{{ item | img_url: 'compact' }}"  alt="{{ item.title | escape }}"></a></td>
+								<td class="price">{{ item.price | money }}</td>
+								<td class="quantity"><input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}"></td>
+								<td class="total">{{ item.line_price | money }}</td>
+								<td class="delete"><a href="/cart/change?line={{ forloop.index }}&quantity=0"><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+							</tr>
 {% endfor %}
-					</tbody>
-				</table>
-
-
-				{% comment %}
-				For the checkout and update buttons to work, they need to use
-				a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive.
-				{% endcomment %}
-
-				<div class="column two-thirds flow-opposite right-aligned">
-				<h3 class="gamma">Subtotal <em>{{ cart.total_price | money }}</em></h3>
-				<a class="hide-on-small" href="{{ continue_shopping_url }}">Continue shopping</a>
-				<span class="or hide-on-small">or</span>
-				<input type="submit" name="update" value="Update cart" />
-				<span class="or">or</span>
-				<input type="submit" name="checkout" value="Check out" />    
-				{% comment %}Paypal and Google checkout buttons{% endcomment %}
-				{% if additional_checkout_buttons %}
-				<p class="additional-checkout-buttons">
-				{{ content_for_additional_checkout_buttons }}
-				</p>
-				{% endif %}
+						</tbody>
+					</table>
 				</div>
 
-				{% comment %}
-				For the special instructions to be submitted with order,
-				we need to use a name attribute set to 'note'.
-				{% endcomment %}
-				<div class="column third flow-opposite left-aligned">
-				<p>Special instructions for seller</p>
-				<textarea name="note">{{ cart.note }}</textarea>
-				</div>
 
+
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+{% comment %} For the checkout and update buttons to work, they need to use a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive. {% endcomment %}
+					<div class="column two-thirds flow-opposite right-aligned">
+						<h3 class="gamma">Subtotal <em>{{ cart.total_price | money }}</em></h3>
+						<a class="hide-on-small" href="{{ continue_shopping_url }}">Continue shopping</a>
+						<span class="or hide-on-small">or</span>
+						<input type="submit" name="update" value="Update cart" />
+						<span class="or">or</span>
+						<input type="submit" name="checkout" value="Check out" />    
+						{% comment %}Paypal and Google checkout buttons{% endcomment %}
+						{% if additional_checkout_buttons %}
+						<p class="additional-checkout-buttons">
+						{{ content_for_additional_checkout_buttons }}
+						</p>
+						{% endif %}
+					</div>
+
+
+{% comment %} For the special instructions to be submitted with order, we need to use a name attribute set to 'note'. {% endcomment %}
+					<div class="column third flow-opposite left-aligned">
+						<p>Special instructions for seller</p>
+						<textarea name="note">{{ cart.note }}</textarea>
+					</div>
+				</div>
 			</form>
 {% else %}
 			<div>
