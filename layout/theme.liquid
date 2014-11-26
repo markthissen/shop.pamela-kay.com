@@ -41,7 +41,7 @@
 
 		<script>jQuery('html').removeClass('no-js').addClass('js');</script>
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,900|Open+Sans:300,300italic,400,400italic,600,700,800|Vollkorn:400,700">
-		<link rel="stylesheet" href="{{ 'bootstrap-3.3.1.min.css' | asset_url }}">
+		<link rel="stylesheet" href="{{ 'bootstrap-3.3.0.min.css' | asset_url }}">
 		<link rel="stylesheet" href="{{ 'flexslider-2.2.0.css' | asset_url }}">
 		<link rel="stylesheet" href="{{ 'style.css' | asset_url }}">
 <!--[if lt IE 9]>
@@ -70,7 +70,7 @@
 			<section id="promo" class="promo-msg flexslider">
 				<ul class="slides">
 					<li>Take 40% off using the promo code <strong>SHOPSMALL2014</strong>. Offer ends 12/1.</li>
-					<li>You are fearfully and wonderfully made. You are <strong>#UniquelyBeautiful!</strong></li>
+					<li>You are fearfully and wonderfully made. You are <strong>#UniquelyBeautiful</strong>!</li>
 				</ul>
 			</section>
 			<a href="/cart" title="You have {{ cart.item_count }} #UniquelyBeautiful {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart"><span class="qty">{{ cart.item_count }}</span></a>
@@ -216,7 +216,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular-animate.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-		<script src="{{ 'bootstrap-3.3.1.min.js' | asset_url }}"></script>
+		<script src="{{ 'bootstrap-3.3.0.min.js' | asset_url }}"></script>
 		<script src="{{ 'jquery.flexslider-2.2.2.min.js' | asset_url }}"></script>
 		<script src="{{ 'app.js' | asset_url }}"></script>
 		<script src="{{ 'shop.js' | asset_url }}"></script>
@@ -227,14 +227,16 @@
 					controlNav: false,
 					directionNav: false,
 					keyboard: false,
+					randomize: true,
 					reverse: true,
-					slideshowSpeed: 10000,
+					slideshowSpeed: 6000,
 					touch: false
 				});
 				$('.product-photos').flexslider({
 					animation: "slide",
 					controlNav: "thumbnails",
-					directionNav: false
+					directionNav: false,
+					keyboard: true
 				});
 			});
 

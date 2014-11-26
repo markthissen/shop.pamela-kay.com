@@ -242,7 +242,7 @@ strong {
 	letter-spacing: 0.07em;
 	font-weight: 700;
 }
-#cart {
+a#cart {
 	background: #df1995 url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/shopping-bag-icon-ffffff.png') no-repeat;
 	background-position: 45% 55%;
 	background-size: auto 65%;
@@ -251,7 +251,10 @@ strong {
 	text-decoration: none;
 	width: 60px;
 }
-#cart .qty {
+a#cart:hover {
+	background-color: #aa0061;	/* Pantone 227 C */;
+}
+a#cart .qty {
 	color: #6e6259;
 	display: block;
 	font-size: 1.1em;
@@ -351,6 +354,10 @@ body.template-index #content .content-cell {
 	margin: 0px;
 	padding: 0px;
 }
+body.template-index #content .content-cell a {
+	display: block;
+	width: 100%;
+}
 body.template-index #content .cell1 {
 	background: #d9d9d6 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-11-26_C-SPLR3_large.jpg');
 	background-size: auto 100%;
@@ -415,7 +422,7 @@ div.product-photos {
 	width: 100%;
 }
 #product-add input[type="submit"]:hover {
-	background: #4698cb;
+	background: #aa0061;	/* Pantone 227 C */
 }
 #product-description {
 	margin-top: 2em;
@@ -499,6 +506,17 @@ body > #footer .search input[type=search] {
 	font-weight: 300;
 	padding: 0.2em;
 	width: 50%;
+}
+body > #footer .search input[type="submit"] {
+	border: none;
+	background: #4698cb;
+	color: #fff;
+	font-weight: 600;
+	padding: 0.8em 2em;
+	width: 100px;
+}
+body > #footer .search input[type="submit"]:hover {
+	background: #0076a8;	/* Pantone 7690 C */
 }
 
 body > #footer #social {
