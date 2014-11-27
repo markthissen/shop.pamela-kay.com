@@ -73,7 +73,7 @@
 					<li>You are fearfully and wonderfully made. You are <strong>#UniquelyBeautiful</strong>!</li>
 				</ul>
 			</section>
-			<a href="/cart" title="You have {{ cart.item_count }} #UniquelyBeautiful {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart"><span class="qty">{{ cart.item_count }}</span></a>
+			<a href="/cart" title="You have {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart" class=" hover-animation"><span class="qty">{{ cart.item_count }}</span></a>
 		</div>
 <!--/#sticky-header -->
 
@@ -92,9 +92,9 @@
 	{% if customer %}
 				Hello, <strong>{{ customer.first_name }}</strong> &nbsp;|&nbsp; <a href="/account">My Account</a> &nbsp;|&nbsp; {{ 'Log Out' | customer_logout_link }}
 	{% else %}
-				Please {{ 'log in' | customer_login_link }},
+				<a href="#" data-toggle="modal" data-target="#login-modal">Log in</a>,
 		{% if shop.customer_accounts_optional %}
-				<a href="#" data-toggle="modal" data-target="#myModal">create an account</a>,
+				<a href="#" data-toggle="modal" data-target="#register-modal">create an account</a>,
 		{% endif %}
 				or simply shop as our guest.
 	{% endif %}
@@ -186,7 +186,7 @@
 					<h4>Can't find what you're looking for?</h4>
 					<form action="/search" method="get" class="search-form right" role="search">
 						<input name="q" type="search" id="search-field" placeholder="Type keywords like 'brown clutch'" value="{{ search.terms | escape }}">
-						<input type="submit" id="search-submit" value="Search">
+						<input type="submit" id="search-submit" value="Search" class="hover-animation">
 					</form>
 				</div><!--/.container -->
 			</section><!--/.search -->
@@ -210,6 +210,10 @@
 <!--/#tc -->
 		</footer>
 <!--/body > #footer -->
+{% if shop.customer_accounts_enabled %}
+	{% if customer %}
+
+	{% else %}
 
 
 
@@ -225,7 +229,48 @@
 
 
 
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div id="login-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					{% form 'customer_login' %}
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+
+							<h3 id="myModalLabel">Log in</h3>
+						</div>
+						<div class="modal-body">
+							{{ form.errors | default_errors }}
+
+							<div class="form-group">
+								<label for="customer_email">E-mail</label><sup class="required">*</sup>
+								<input type="email" name="customer[email]">
+							</div>
+
+							<div class="form-group">
+								<label for="customer_password">Password</label><sup class="required">*</sup>
+								<input type="password" name="customer[password]">
+							</div>
+						</div>
+						<div class="modal-footer">
+							<p class="required-legend"><sup class="required">*</sup> Required field</p>
+							<button type="button" class="btn btn-default hover-animation" data-dismiss="modal">Cancel</button>
+							<input type="submit" value="Log In" class="btn btn-primary hover-animation">
+						</div>
+					{% endform %}
+				</div>
+			</div>
+		</div>
+<!--/#login-modal -->
+
+
+
+
+
+
+
+
+		<div id="register-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					{% form 'create_customer' %}
@@ -251,24 +296,28 @@
 
 
 								<div class="form-group">
-									<label for="email">E-mail</label>
+									<label for="email">E-mail</label><sup class="required">*</sup>
 									<input type="email" value="" name="customer[email]" size="30">
 								</div>
 
 
 								<div class="form-group">
-									<label for="password">Password</label>
+									<label for="password">Password</label><sup class="required">*</sup>
 									<input type="password" value="" name="customer[password]" size="30">	
 								</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							<input type="submit" value="Create" class="btn btn-primary">
+							<p class="required-legend"><sup class="required">*</sup> Required field</p>
+							<button type="button" class="btn btn-default hover-animation" data-dismiss="modal">Cancel</button>
+							<input type="submit" value="Create" class="btn btn-primary hover-animation">
 						</div>
 					{% endform %}
 				</div>
 			</div>
 		</div>
+<!--/#register-modal -->
+	{% endif %}
+{% endif %}
 
 
 
@@ -306,18 +355,23 @@
 					slideshowSpeed: 6000,
 					touch: false
 				});
+{% if template contains 'product' %}
 				$('.product-photos').flexslider({
 					animation: "slide",
 					controlNav: "thumbnails",
 					directionNav: false,
 					keyboard: true
 				});
+{% endif %}
 			});
 
 
 			$(window).resize(function(){
 {% if template contains 'index' %}
 				$('.content-cell').each(function() {
+					$(this).height($(this).width());
+				});
+				$('.home-grid').each(function() {
 					$(this).height($(this).width());
 				});
 {% endif %}

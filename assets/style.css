@@ -200,6 +200,14 @@ strong {
 	opacity: 1;
 }
 .flex-control-thumbs img { opacity: .33; }
+.required {
+	color: #df1995;
+	font-weight: 700;
+}
+.required-legend {
+	display: inline-block;
+	float: left;
+}
 
 
 
@@ -376,6 +384,7 @@ body.template-index #content .content-cell {
 }
 body.template-index #content .content-cell a {
 	display: block;
+	text-decoration: none;
 	width: 100%;
 }
 body.template-index #content .cell1 {
