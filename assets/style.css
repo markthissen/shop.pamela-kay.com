@@ -134,6 +134,13 @@ h4 {
 	margin-bottom: 1.1em;
 	text-transform: uppercase;
 }
+label {
+	color: #3d3935;
+	font-size: 0.9em;
+	font-weight: 400;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
 a {
 	color: #8bb8e8;
 }
@@ -192,6 +199,7 @@ strong {
 .fade-animation.ng-enter.ng-leave-active {
 	opacity: 1;
 }
+.flex-control-thumbs img { opacity: .33; }
 
 
 
@@ -211,6 +219,11 @@ strong {
  * 4.0 body > #header
  * ----------------------------------------------------------------------------
  */
+.template-customers-register #sticky-header,
+.template-customers-register #header,
+.template-customers-register #footer {
+	display: none;
+}
 #sticky-header {
 	background: url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/003c71-95.png');
 	position: fixed;
@@ -277,6 +290,13 @@ body > #header #acct {
 }
 body > #header #acct a {
 	font-weight: 700;
+}
+.form-group input[type=text],
+.form-group input[type=email],
+.form-group input[type=password] {
+	border: solid 1px #c8c9c7;
+	font-size: 1.5em;
+	width: 100%;
 }
 body > #header .branding {
 	margin: 2em 0em 2.4em 0em;
@@ -502,8 +522,10 @@ body > #footer .search .container {
 	padding: 2em 0em 3.6em 0em;
 }
 body > #footer .search input[type=search] {
+	display: inline-block;
 	font-size: 1.6em;
 	font-weight: 300;
+	margin-top: 0.4em;
 	padding: 0.2em;
 	width: 50%;
 }
@@ -511,6 +533,7 @@ body > #footer .search input[type="submit"] {
 	border: none;
 	background: #4698cb;
 	color: #fff;
+	display: inline-block;
 	font-weight: 600;
 	padding: 0.8em 2em;
 	width: 100px;
