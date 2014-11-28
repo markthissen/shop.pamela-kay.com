@@ -83,6 +83,7 @@ Pantone Black 7 C	#3d3935
  * ----------------------------------------------------------------------------
  */
 * {
+	outline: none;
 	text-shadow: none;
 }
 
@@ -111,6 +112,7 @@ Pantone Black 7 C	#3d3935
 }
 body {
 	background: #fff;
+	min-width: 280px;
 }
 h1 {
 	font-size: 1.6em;
@@ -146,6 +148,9 @@ a {
 }
 a:hover {
 	color: #df1995;
+}
+input, textarea {
+	-webkit-border-radius: 0px; -moz-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px;
 }
 @font-face {
 	font-family: 'Glyphicons Halflings';
@@ -379,6 +384,7 @@ body.template-index #content * {
 }
 body.template-index #content .row,
 body.template-index #content .content-cell {
+	display: block;
 	margin: 0px;
 	padding: 0px;
 }
@@ -391,6 +397,9 @@ body.template-index #content .cell1 {
 	background: #d9d9d6 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-11-26_C-SPLR3_large.jpg');
 	background-size: auto 100%;
 	background-position: 50% 50%;
+}
+body.template-index #content .cell2-5 {
+	background: #d0d0ce;
 }
 body.template-index #content .cell2 {
 	background: #d0d0ce url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/home-cobble-stone.jpg');
@@ -531,11 +540,13 @@ body > #footer .search .container {
 	padding: 2em 0em 3.6em 0em;
 }
 body > #footer .search input[type=search] {
+	border: none;
+	border-bottom: solid 1px #bbbcbc;
 	display: inline-block;
 	font-size: 1.6em;
 	font-weight: 300;
 	margin-top: 0.4em;
-	padding: 0.2em;
+	padding: 0.3em 0em;
 	width: 50%;
 }
 body > #footer .search input[type="submit"] {
@@ -618,7 +629,33 @@ body > #footer #tc p {
 
 
 /**
- * 7.1 Styles for iPhone landscape and up
+ * 7.1 Styles for iPhone portrait only
+ * ----------------------------------------------------------------------------
+ */
+@media (max-width: 479px) {
+	body.template-index #content .cell1,
+	body.template-index #content .cell2-5,
+	body.template-index #content .cell6,
+	body.template-index #content .cell7 {
+		width: 100%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 7.2 Styles for iPhone landscape and up
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 480px) {
@@ -626,10 +663,14 @@ body > #footer #tc p {
 		width: 88%;
 	}
 	.promo-msg {
+		margin-top: 0px;
 		width: 87%;
 	}
 	.promo-msg li {
+		font-size: 1.0em;
+		font-weight: 300;
 		line-height: 60px;
+		padding-top: 0px;
 		text-align: right;
 	}
 	body > #footer #brand-msg p {
@@ -663,7 +704,7 @@ body > #footer #tc p {
 
 
 /**
- * 7.2 Styles for extra small devices only
+ * 7.3 Styles for extra small devices only
  * ----------------------------------------------------------------------------
  */
 @media (max-width: 767px) {
@@ -733,7 +774,7 @@ body > #footer #tc p {
 
 
 /**
- * 7.3 Styles for small devices (tablet) only. Galaxy Tab 4 (600px), iPad (768px)
+ * 7.4 Styles for small devices (tablet) only. Galaxy Tab 4 (600px), iPad (768px)
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 600px) and (max-width: 991px) {
@@ -755,7 +796,7 @@ body > #footer #tc p {
 
 
 /**
- * 7.4 Styles for small, medium, and large devices
+ * 7.5 Styles for small, medium, and large devices
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 768px) {
@@ -766,10 +807,7 @@ body > #footer #tc p {
 		width: 90%;
 	}
 	.promo-msg li {
-		font-size: 1.1em;
-		font-weight: 300;
-		padding-top: 0px;
-		text-align: right;
+		font-size: 1.2em;
 	}
 	body.template-collection #content .prod-container {
 		width: 33.33%;
@@ -817,7 +855,7 @@ body > #footer #tc p {
 
 
 /**
- * 7.5 Styles for extra small and small devices
+ * 7.6 Styles for extra small and small devices
  * ----------------------------------------------------------------------------
  */
 @media (max-width: 991px) {
@@ -839,7 +877,7 @@ body > #footer #tc p {
 
 
 /**
- * 7.6 Styles for medium and large devices
+ * 7.7 Styles for medium and large devices
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 992px) {
@@ -897,7 +935,7 @@ body > #footer #tc p {
 
 
 /**
- * 7.7 Styles for large devices only
+ * 7.8 Styles for large devices only
  * ----------------------------------------------------------------------------
  */
 @media (min-width: 1200px) {
