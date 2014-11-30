@@ -44,18 +44,6 @@
 
 	{% comment %}Listing all tags within the current collection. Shopify uses product tags to manage subcategories inside collections.See 'How do I create subcategories of products?' at http://bit.ly/1j1Dti4 for details.{% endcomment %}
 
-	{% if collection.all_tags.size > 0 %}
-			<div class="row">
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 {% unless current_tags %} active{% endunless %}">{{ 'All' | link_to_remove_tag: current_tags.first }}</li>
-		{% for tag in collection.all_tags %}
-			{% if current_tags contains tag %}
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 active">{{ tag | link_to_remove_tag: tag }}</div>
-			{% else %}
-				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-"3">{{ tag | link_to_tag: tag }}</div>
-			{% endif %}
-		{% endfor %}  
-			</div><!--/.row -->
-	{% endif %}
 
 
 

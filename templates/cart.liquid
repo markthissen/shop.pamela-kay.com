@@ -30,7 +30,7 @@
 								<td class="price">{{ item.price | money }}</td>
 								<td class="quantity"><input type="number" name="updates[]" id="updates_{{ item.id }}" class="quantity" value="{{ item.quantity }}"></td>
 								<td class="total">{{ item.line_price | money }}</td>
-								<td class="delete"><a href="/cart/change?line={{ forloop.index }}&quantity=0"><span class="glyphicon glyphicon-minus-sign"></span></a></td>
+								<td class="delete"><a href="/cart/change?line={{ forloop.index }}&quantity=0"><span class="glyphicon glyphicon-minus-sign hover-animation"></span></a></td>
 							</tr>
 {% endfor %}
 						</tbody>
@@ -44,11 +44,9 @@
 					<div>
 						<h4 class="gamma">Subtotal</h4>
 						<h3>{{ cart.total_price | money }}</h3>
-						<a class="hide-on-small" href="{{ continue_shopping_url }}">Continue shopping</a>
-						<span class="or hide-on-small">or</span>
-						<input type="submit" name="update" value="Update cart">
-						<span class="or">or</span>
-						<input type="submit" name="checkout" value="Check out">    
+						<a href="{{ continue_shopping_url }}" id="continue-shopping" class="hover-animation">Continue shopping</a>
+						<input type="submit" name="update" value="Update cart" id="update" class="hover-animation">
+						<input type="submit" name="checkout" value="Check out" id="checkout" class="hover-animation">    
 						{% comment %}Paypal and Google checkout buttons{% endcomment %}
 						{% if additional_checkout_buttons %}
 						<p class="additional-checkout-buttons">

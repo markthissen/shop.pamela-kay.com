@@ -459,7 +459,7 @@ body.template-index #content .cell2 {
 	background-size: 100% 100%;
 }
 body.template-index #content .cell3 {
-	background: #c8c9c7 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-12-9_W-GRNM2_large.jpg');
+	background: #c8c9c7 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-12-9_W-GPEB1_large.jpg');
 	background-position: 50% 40%;
 	background-size: 105% auto;
 }
@@ -562,8 +562,44 @@ div.product-photos {
 .shopping-bag-table tbody tr:nth-of-type(odd) { 
 /*	background: rgba(217, 217, 214, 0.4);  */
 }
+.delete a span {
+	color: #4698cb;
+}
+.delete a:hover span {
+	color: #0076a8;	/* Pantone 7690 C */
+}
 #instructions {
 	margin-top: 3em;
+}
+a#continue-shopping,
+input#update {
+	border: none;
+	background: #f7f7f7;
+	color: #53565a;
+	display: block;
+	font-weight: 600;
+	margin-top: 0.8em;
+	padding: 1em 2em;
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+}
+a#continue-shopping:hover,
+input#update:hover {
+	background: #d9d9d6;
+}
+input#checkout {
+	border: none;
+	background: #df1995;
+	color: #fff;
+	display: block;
+	font-weight: 600;
+	margin-top: 0.8em;
+	padding: 1em 2em;
+	width: 100%;
+}
+input#checkout:hover {
+	background: #aa0061;	/* Pantone 227 C */
 }
 
 
