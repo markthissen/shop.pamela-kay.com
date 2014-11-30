@@ -58,14 +58,13 @@
 
 {% comment %} For the special instructions to be submitted with order, we need to use a name attribute set to 'note'. {% endcomment %}
 					<div id="instructions">
-						<h4>Special instructions for seller</h4>
+						<h4>Special instructions</h4>
 						<textarea name="note">{{ cart.note }}</textarea>
 					</div>
 				</div>
 			</form>
 {% else %}
-			<div>
-				<h2 class="gamma">It appears that your cart is currently empty!</h2>
-				<h3 class="delta">You can continue browsing <a href="/collections/all">here</a>.</h3>
+			<div id="empty-message">
+				<p>It appears that your cart is currently empty. You can continue browsing <a href="/collections/all">here</a>.</p>
 			</div>
 {% endif %}

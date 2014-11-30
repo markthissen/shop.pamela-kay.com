@@ -493,6 +493,22 @@ body.template-collection #content .prod-container {
 	margin: 0px;
 	padding: 0px;
 }
+.pagination {
+	display: block;
+	text-align: center;
+}
+.pagination span a,
+.pagination span.current {
+	display: inline-block;
+	font-size: 0.9em;
+	letter-spacing: 0.1em;
+	padding: 1em;
+	text-transform: uppercase;
+}
+.pagination span.current {
+	color: #df1995;
+	font-weight: 700;
+}
 div.product-photos {
 	-webkit-box-shadow: none; -moz-box-shadow: none; -o-box-shadow: none; box-shadow: none;
 	margin: 0em 0em 1em 0em;
@@ -788,6 +804,7 @@ body > #footer #tc p {
 		text-align: right;
 	}
 	body > #footer #social p {
+		line-height: 1.7em;
 		margin-right: auto;
 		margin-left: auto;
 		max-width: 480px;
