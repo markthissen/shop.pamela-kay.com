@@ -111,7 +111,7 @@ Pantone Black 7 C	#3d3935
 	font-weight: 400;
 }
 body {
-	background: #fff;
+	background: #fff url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/bg-snowflake.jpg') top center repeat-x;
 	min-width: 280px;
 }
 h1 {
@@ -334,7 +334,7 @@ body > #header .branding .logo {
 	width: 60%;
 }
 .navbar-default button {
-	background: #fff !important;
+	background: none !important;
 	border: none;
 	-webkit-border-radius: 0px; -moz-border-radius: 0px; -o-border-radius: 0px; border-radius: 0px;
 	float: left;
@@ -460,8 +460,8 @@ body.template-index #content .cell2 {
 }
 body.template-index #content .cell3 {
 	background: #c8c9c7 url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-12-9_W-GPEB1_large.jpg');
-	background-position: 50% 40%;
-	background-size: 105% auto;
+	background-position: 60% 50%;
+	background-size: auto 100%;
 }
 body.template-index #content .cell4 {
 	background: #bbbcbc url('//cdn.shopify.com/s/files/1/0161/6452/products/product_shots_2013-11-26_C-STORM4_grande.jpg');
