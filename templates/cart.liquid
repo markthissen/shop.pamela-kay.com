@@ -2,7 +2,7 @@
 
 {% if cart.item_count > 0 %}
 			<form action="/cart" method="post">
-				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-margin-padding">
 					<table class="shopping-bag-table">
 						<thead>
 							<tr>
@@ -41,13 +41,14 @@
 
 				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 {% comment %} For the checkout and update buttons to work, they need to use a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive. {% endcomment %}
-					<div class="column two-thirds flow-opposite right-aligned">
-						<h3 class="gamma">Subtotal <em>{{ cart.total_price | money }}</em></h3>
+					<div>
+						<h4 class="gamma">Subtotal</h4>
+						<h3>{{ cart.total_price | money }}</h3>
 						<a class="hide-on-small" href="{{ continue_shopping_url }}">Continue shopping</a>
 						<span class="or hide-on-small">or</span>
-						<input type="submit" name="update" value="Update cart" />
+						<input type="submit" name="update" value="Update cart">
 						<span class="or">or</span>
-						<input type="submit" name="checkout" value="Check out" />    
+						<input type="submit" name="checkout" value="Check out">    
 						{% comment %}Paypal and Google checkout buttons{% endcomment %}
 						{% if additional_checkout_buttons %}
 						<p class="additional-checkout-buttons">
@@ -58,8 +59,8 @@
 
 
 {% comment %} For the special instructions to be submitted with order, we need to use a name attribute set to 'note'. {% endcomment %}
-					<div class="column third flow-opposite left-aligned">
-						<p>Special instructions for seller</p>
+					<div id="instructions">
+						<h4>Special instructions for seller</h4>
 						<textarea name="note">{{ cart.note }}</textarea>
 					</div>
 				</div>

@@ -73,9 +73,40 @@
 					<li>You are fearfully and wonderfully made. You are <strong>#UniquelyBeautiful</strong>!</li>
 				</ul>
 			</section>
-			<a href="/cart" title="You have {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart" class=" hover-animation"><span class="qty">{{ cart.item_count }}</span></a>
+			<a href="/cart" title="You have {{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }}) in your shopping bag." id="cart" class="hover-animation"><span class="qty">{{ cart.item_count }}</span></a>
 		</div>
 <!--/#sticky-header -->
+
+
+
+
+
+
+
+
+
+		<div class="padding-hack">&nbsp;</div>
+		<nav id="navbar" class="navbar-collapse collapse">
+			<ul>
+{% for link in linklists.main-menu.links %}
+	{% assign has_sub_menu = false %}
+	{% assign has_sub_categories = false %}
+	{% assign parent_link_active = false %}
+	{% assign child_list_handle = link.title | handle %}
+	{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+		{% assign has_sub_menu = true %}
+		{% for l in linklists[child_list_handle].links %}
+			{% if page_title == l.title %}
+				{% assign parent_link_active = true %}
+			{% endif %}
+		{% endfor %}
+	{% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+		{% assign has_sub_categories = true %}
+	{% endif %}
+				<li class="nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %} hover-animation">{{ link.title | link_to: link.url }}</li>
+{% endfor %}
+			</ul>
+		</nav><!--/.topnav -->
 
 
 
@@ -88,6 +119,13 @@
 
 		<header id="header">
 			<section id="acct" class="container">
+				<div class="navbar-default visible-xs">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
 {% if shop.customer_accounts_enabled %}
 	{% if customer %}
 				Hello, <strong>{{ customer.first_name }}</strong> &nbsp;|&nbsp; <a href="/account">My Account</a> &nbsp;|&nbsp; {{ 'Log Out' | customer_logout_link }}
@@ -105,7 +143,7 @@
 				<a href="/"><img src="{{ 'logo-w-tagline-light-bg.png' | asset_url }}" alt="Pamela Kay | Hand made ~ like you" title="Pamela Kay | Hand made ~ like you" class="logo"></a>
 			</section>
 <!--/#branding -->
-			<nav id="topnav" class="hidden-xs">
+			<nav class="topnav hidden-xs">
 				<ul>
 {% for link in linklists.main-menu.links %}
 	{% assign has_sub_menu = false %}
@@ -122,27 +160,10 @@
 	{% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
 		{% assign has_sub_categories = true %}
 	{% endif %}
-					<li class="nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %}">
-						{{ link.title | link_to: link.url }}
-	{% if has_sub_menu or has_sub_categories %}
-						<ul class="sub-nav">
-							<li class="sub-nav-niblet"></li>
-		{% if has_sub_menu %}
-			{% for l in linklists[child_list_handle].links %}
-							<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if l.active %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ l.url }}">{{ l.title }}</a></li>
-			{% endfor %}
-		{% elsif has_sub_categories %}
-			{% for tag in link.object.all_tags %}
-							<li class="sub-nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if current_tags contains tag %} active{% endif %}"><a class="{% if forloop.first %}first{% elsif forloop.last %}last{% endif %}" href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a></li>
-			{% endfor %}
-		{% endif %}
-						</ul>
-	{% endif %}
-					</li>
+					<li class="nav-item{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %}">{{ link.title | link_to: link.url }}</li>
 {% endfor %}
 				</ul>
-			</nav>
-<!--/#topnav -->
+			</nav><!--/.topnav -->
 		</header>
 <!--/body > #header -->
 
