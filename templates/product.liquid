@@ -36,14 +36,21 @@
 								<span class="product-price on-sale" itemprop="price">{{ variant.price | money }}</span>
 								<s class="product-compare-price">{{ variant.compare_at_price | money }}</s>
 {% else %}
+								
+	{% if product.available %}
 								<span class="product-price" itemprop="price">{{ variant.price | money }}</span>
+	{% else %}
+								<span class="product-price" itemprop="price" style="text-decoration: line-through;">{{ variant.price | money }}</span>
+								<span class="sold-out">Sold Out</span>
+	{% endif %}
 {% endif %}
 							</p>
 
-
+{% if product.available %}
 							<div id="product-add">
-								<input type="submit" name="add" id="add" class="primary button hover-animation" value="Add to shopping bag">
+								<input type="submit" name="add" id="add" class="primary button hover-animation" value="Add to shopping bag" onClick="_gaq.push(['_trackEvent', 'Shopping bag', 'Add to shopping bag', 'Add to shopping bag']);">
 							</div>
+{% endif %}
 						</div>
 
 

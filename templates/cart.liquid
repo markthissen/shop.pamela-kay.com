@@ -44,9 +44,9 @@
 					<div>
 						<h4 class="gamma">Subtotal</h4>
 						<h3>{{ cart.total_price | money }}</h3>
-						<a href="{{ continue_shopping_url }}" id="continue-shopping" class="hover-animation">Continue shopping</a>
-						<input type="submit" name="update" value="Update cart" id="update" class="hover-animation">
-						<input type="submit" name="checkout" value="Check out" id="checkout" class="hover-animation">    
+						<a href="{{ continue_shopping_url }}" id="continue-shopping" class="hover-animation" onClick="_gaq.push(['_trackEvent', 'Shopping bag', 'Continue shopping', 'Continue shopping']);">Continue shopping</a>
+						<input type="submit" name="update" value="Update cart" id="update" class="hover-animation" onClick="_gaq.push(['_trackEvent', 'Shopping bag', 'Update shopping bag', 'Update shopping bag']);">
+						<input type="submit" name="checkout" value="Check out" id="checkout" class="hover-animation" onClick="_gaq.push(['_trackEvent', 'Shopping bag', 'Check out', 'Check out']);">    
 						{% comment %}Paypal and Google checkout buttons{% endcomment %}
 						{% if additional_checkout_buttons %}
 						<p class="additional-checkout-buttons">

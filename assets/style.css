@@ -111,7 +111,7 @@ Pantone Black 7 C	#3d3935
 	font-weight: 400;
 }
 body {
-	background: #fff url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/bg-snowflake.jpg') top center repeat-x;
+	background: #fff;
 	min-width: 280px;
 }
 h1 {
@@ -220,7 +220,7 @@ strong {
 }
 .padding-hack {
 	display: block;
-	padding-top: 40px;
+	padding-top: 39px;
 }
 .no-margin-padding {
 	margin: 0px;
@@ -252,6 +252,7 @@ strong {
 }
 #sticky-header {
 	background: url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/003c71-95.png');
+	-webkit-box-shadow: 0 0 15px 3px #63666a; -moz-box-shadow: 0 0 15px 3px #63666a; -o-box-shadow: 0 0 15px 3px #63666a; box-shadow: 0 0 15px 3px #63666a;
 	position: fixed;
 	text-align: right;
 	width: 100%;
@@ -305,7 +306,8 @@ a#cart .qty {
 	width: 1.4em;
 }
 body > #header {
-
+	background: url('//cdn.shopify.com/s/files/1/0161/6452/t/5/assets/bg-snowflake.jpg') top center repeat-x;
+	background-size: auto 100%;
 }
 body > #header #acct {
 	color: #97999b;
@@ -548,6 +550,12 @@ div.product-photos {
 }
 .product-details li {
 	margin-left: 1.2em;
+}
+.sold-out {
+	color: #df1995;
+	letter-spacing: 0.1em;
+	margin-left: 1em;
+	text-transform: uppercase;
 }
 
 
@@ -949,7 +957,7 @@ body > #footer #tc p {
 		width: 90%;
 	}
 	.promo-msg li {
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 	#navbar {
 		display: none !important;
