@@ -38,7 +38,7 @@
 {% else %}
 								
 	{% if product.available %}
-								<span class="product-price" itemprop="price">{{ variant.price | money }}</span>
+								<span class="product-price" itemprop="price">{{ variant.price | money_with_currency }}</span>
 	{% else %}
 								<span class="product-price" itemprop="price" style="text-decoration: line-through;">{{ variant.price | money }}</span>
 								<span class="sold-out">Sold Out</span>
@@ -109,7 +109,7 @@
 {% endif %}
 {% if collection.next_product %}
 {% capture next_url %}{{ collection.next_product}}#content{% endcapture %}
-<span class="right">{{ 'Next Product &rarr;' | link_to: next_url }}</span>
+<span class="pull-right">{{ 'Next Product &rarr;' | link_to: next_url }}</span>
 {% endif %}
 </div>
 {% endif %}

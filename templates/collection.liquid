@@ -4,7 +4,11 @@
 	- Never paginate by more than 50.
 {% endcomment %}
 
-{% assign products_per_page = settings.products_per_row | times: settings.number_of_rows %}
+{% if collection.handle == 'all' %}
+	{% assign products_per_page = collection.all_products_count %}
+{% else %}
+	{% assign products_per_page = settings.products_per_row | times: settings.number_of_rows %}
+{% endif %}
 {% assign numbers = 'zero, one, two, three, four, five, six' | split: ',' %}
 {% assign products_per_row = settings.products_per_row | times: 1 %}
 {% assign products_per_row = numbers[products_per_row] | strip | append: '-per-row' %}
@@ -28,18 +32,7 @@
 
 	{% comment %}Collection sorting. Needs the JavaScript that is at the bottom of this file.{% endcomment %}
 	{% if collection.products_count > 1 %}
-<!--
-			<select class="sort-by right">
-				<option value="manual">Featured</option>
-				<option value="price-ascending">Price: Low to High</option>
-				<option value="price-descending">Price: Hight to Low</option>
-				<option value="title-ascending">A-Z</option>
-				<option value="title-descending">Z-A</option>
-				<option value="created-ascending">Oldest to Newest</option>
-				<option value="created-descending">Newest to Oldest</option>
-				<option value="best-selling">Best Selling</option>
-			</select>
--->
+
 	{% endif %}
 
 	{% comment %}Listing all tags within the current collection. Shopify uses product tags to manage subcategories inside collections.See 'How do I create subcategories of products?' at http://bit.ly/1j1Dti4 for details.{% endcomment %}
